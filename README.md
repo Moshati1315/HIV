@@ -20,4 +20,6 @@ Hundreds of millions of federal dollars have been allocated for treatment and er
 
 ## Data
 
-Socieeconomic data at Census.gov added as a new data source to build on work done by DS 5110 students.
+1.	https://github.com/ds5110/projects-spring-2023-ahaskell83/tree/main
+2.	Sullivan PS, Woodyatt C, Koski C, Pembleton E, McGuinness P, Taussig J, Ricca A, Luisi N, Mokotoff E, Benbow N, Castel AD. A data visualization and dissemination resource to support HIV prevention and care at the local level: analysis and uses of the AIDSVu Public Data Resource. Journal of medical Internet research. 2020;22(10):e23173.
+3.	https://www.statista.com/statistics/241488/population-of-the-us-by-sex-and-age/
