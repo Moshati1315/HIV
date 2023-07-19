@@ -3,7 +3,7 @@
 url: https://github.com/ds5110/bioscience
 
 ### Taken from Group 2
-
+Direct URL for the repo: https://github.com/ds5110/projects-spring-2023-ahaskell83
 ## Data Pipeline:
 
 For the detailed code used in the pipeline described below, refer to get_data.py
