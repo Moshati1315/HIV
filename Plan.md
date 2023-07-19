@@ -22,7 +22,7 @@ Prof. Brianne Olivieri-Mui, Dept of Health Sciences
 
 7-21  Streamline modeling into Makefile output
 
-7-24  Github Pages site for graphs and modelsing
+7-24  NBviewer site for graphs and modeling
 
 7-28  Begin presentation preparation
 
