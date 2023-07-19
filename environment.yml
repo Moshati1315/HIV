@@ -21,3 +21,6 @@ dependencies:
   - scikit-learn
   - selenium
   - phantomjs
+
+
+# taken from https://github.com/ds5110/projects-spring-2023-ahaskell83/blob/main/environment.yml
