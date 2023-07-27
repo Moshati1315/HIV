@@ -1,12 +1,12 @@
 ### Taken from Group 1
 
-url: https://github.com/ds5110/bioscience
+url_group1: https://github.com/ds5110/bioscience
 
 ### Taken from Group 2
 
-Direct URL for the repo: https://github.com/ds5110/projects-spring-2023-ahaskell83
+url_group2: https://github.com/ds5110/projects-spring-2023-ahaskell83
 
-## Data Pipeline:
+## Data Pipeline: (Group 2)
 
 For the detailed code used in the pipeline described below, refer to get_data.py
 
@@ -54,7 +54,7 @@ The ages 45+ data was updated to include regions, priority jurisdictions, and st
  
 The ages 45+ data was merged with v1gdf into a single dataframe- gdf. The data from AIDSVu_County_SDOH_2020 was then added to this dataframe. All columns were renamed to be easily understood when filtering maps. Any counties that did not have a reported HIV prevalence rate for all ages or ages 45+ was dropped. Counties that had data for one age group but not the other were kept. This final dataframe was used for all the interactive mapping shown in the notebook.
 
-## Data explaination  
+## Data explaination  (Group 2)
 
 url: https://aidsvu.org/data-methods/data-methods-statecounty/
 
