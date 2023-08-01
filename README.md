@@ -41,7 +41,11 @@ make model
 
 repo - https://github.com/ds5110/project-summer-2023-moriarity-tim
 
-#### We are building off the work of two previous groups.
+##### We are building off the work of two previous groups.
+
+##### Every file will have a reference to where it originated, and if it has been modified or not. 
+##### This will be done by a mention of the group at the bottom of every file.
+
 #### Group 1
 * Nick Barnes
 * Paige Norris
@@ -53,4 +57,3 @@ repo - https://github.com/ds5110/project-summer-2023-moriarity-tim
 * Nicholas Letarte
 * https://github.com/ds5110/projects-spring-2023-ahaskell83/tree/main
 
-#### We will reference the group that created any files used at the bottom of each file, including our own with the group number.
