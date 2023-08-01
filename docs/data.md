@@ -1,10 +1,30 @@
-### Taken from Group 1
+## Data Transparency
+
+The data files are broken in to two parts to clearly see the contributions of both previous teams. They will be streamlined in the make file in to one commmand
+```
+make data
+```
+
+### Taken from Group 1 - g1data.py
 
 url_group1: https://github.com/ds5110/bioscience
 
-### Taken from Group 2
+stateFIPS.csv - created by group 1 for the project taken from the table shown at this link.
+
+    - https://www.bls.gov/respondents/mwr/electronic-data-interchange/appendix-d-usps-state-abbreviations-and-fips-codes.htm
+
+
+
+### Taken from Group 2 - g2data.py
 
 url_group2: https://github.com/ds5110/projects-spring-2023-ahaskell83
+
+
+
+
+
+
+
 
 ## Data Pipeline: (Group 2)
 
@@ -54,7 +74,7 @@ The ages 45+ data was updated to include regions, priority jurisdictions, and st
  
 The ages 45+ data was merged with v1gdf into a single dataframe- gdf. The data from AIDSVu_County_SDOH_2020 was then added to this dataframe. All columns were renamed to be easily understood when filtering maps. Any counties that did not have a reported HIV prevalence rate for all ages or ages 45+ was dropped. Counties that had data for one age group but not the other were kept. This final dataframe was used for all the interactive mapping shown in the notebook.
 
-## Data explaination  (Group 2)
+## Data explaination  (Group 2 )
 
 url: https://aidsvu.org/data-methods/data-methods-statecounty/
 
