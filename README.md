@@ -1,9 +1,5 @@
 # Equitable health care
 
-### Gihub Repository
-
-repo - https://github.com/ds5110/project-summer-2023-moriarity-tim
-
 ### Project partners - Group 3
 
 * Timothy Moriarity - moriarity.t@northeastern.edu
@@ -29,7 +25,6 @@ The necessary data can be recreated with the following command:
 
 ```
 make data
-
 ```
 
 ### Model
@@ -39,10 +34,12 @@ Building off the work done by the previous groups we were able to run a linear r
 We are looking to see if the rating of an areas nursing homes has an impact on HIV infections.
 ```
 make model
-
 ```
 
+
 ### Referencing
+
+repo - https://github.com/ds5110/project-summer-2023-moriarity-tim
 
 #### We are building off the work of two previous groups.
 #### Group 1
