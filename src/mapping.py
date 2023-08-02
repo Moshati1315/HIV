@@ -42,7 +42,7 @@ county_df = pd.read_csv(county_url).dropna()
 df2 = county_df.copy()
 df2 = df2.rename(columns={'county': 'County', 'state': 'State','Rates of Persons Living with HIV, 2020': 'Rate'})
 # Drop undefined rows (Rate='undefined') as well as all negative values (Rates containing '-'):
-#df2 = df2[df2.Rate.str.isnumeric()]
+df2 = df2[df2.Rate.str.isnumeric()]
 # Convert rates from string to numeric value:
 df2['Rate'] = pd.to_numeric(df2['Rate'])
 
