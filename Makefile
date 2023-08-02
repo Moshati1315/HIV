@@ -1,6 +1,6 @@
 .PHONY: data
 
-data: get_data mapping merge
+data: mapping merge
 
 model:
 	python -B src/regression.py
@@ -33,7 +33,7 @@ get_data:
 	cd data; curl -LO https://raw.githubusercontent.com/ds5110/project-summer-2023-moriarity-tim/main/data/county.csv
 	cd data; curl -LO https://raw.githubusercontent.com/ds5110/project-summer-2023-moriarity-tim/main/data/county45_54.csv
 	cd data; curl -LO https://raw.githubusercontent.com/ds5110/project-summer-2023-moriarity-tim/main/data/county55%2B.csv
-	
+
 mapping:
 	python -B src/mapping.py
 
