@@ -40,11 +40,12 @@ importatly, it contains data on all NHs by county, and the overall quality ratin
 county_df = pd.read_csv(county_url).dropna()
 # Rename features:
 df2 = county_df.copy()
-df2 = df2.rename(columns={'county': 'County', 'state': 'State', 'Rates of Persons Living with HIV, 2020': 'Rate'})
+df2 = df2.rename(columns={'county': 'County', 'state': 'State','Rates of Persons Living with HIV, 2020': 'Rate'})
 # Drop undefined rows (Rate='undefined') as well as all negative values (Rates containing '-'):
-df2 = df2[df2.Rate.str.isnumeric()]
+#df2 = df2[df2.Rate.str.isnumeric()]
 # Convert rates from string to numeric value:
 df2['Rate'] = pd.to_numeric(df2['Rate'])
+
 
 # Import the provider data set. Only want state, county, and rating features:
 provider_df = pd.read_csv(provider_url, sep=",", encoding='cp1252', usecols = ['Provider County Name', 'Provider State', 'Overall Rating']).dropna()
@@ -237,4 +238,7 @@ for i in gdf.index:
 # Saving file in data folder
 stateFIPS_df.to_csv("data/v1stateFIPS_df.csv")
 
-# This file was taken from Group 1. It was originally get_gdf.py in the group 1 repo, but has been modified to accomodate new file paths and make commands
+'''
+This file was adapted from Group 1. It was originally get_gdf.py in the group 1 repo, but has been modified to accomodate new file paths and make commands
+It uses an newer version of the provider dataset.
+'''

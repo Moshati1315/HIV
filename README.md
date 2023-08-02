@@ -44,7 +44,7 @@ repo - https://github.com/ds5110/project-summer-2023-moriarity-tim
 ##### We are building off the work of two previous groups.
 
 ##### Every file will have a reference to where it originated, and if it has been modified or not. 
-##### This will be done by a mention of the group at the bottom of every file.
+##### This will be done by a reference to the group at the bottom of every file.
 
 #### Group 1
 * Nick Barnes
