@@ -12,6 +12,7 @@ plot:
 results:
 	python -B src/results.py
 
+# to download from repo directly, not necessary if cloning the repo all the starting files are in the data folder.
 get_data:
 	mkdir -p data 
 # jurisdiction table & fips codes table - generated based on links
