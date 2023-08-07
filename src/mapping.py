@@ -12,11 +12,6 @@ stateFIPS_df = mapping.stateFIPS_df
 
 from imports import *
 
-''' Installs '''
-#%pip install geopandas
-#%pip install ipython
-#%pip install descartes
-
 #replaced with environment.yml file in group2
 
 # Get data for HIV rates by county, Nursing Home Provider information:

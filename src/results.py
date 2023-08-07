@@ -50,8 +50,8 @@ axes[2].set_xlabel('Syphilis Rate')
 g.set_titles(col_template="{col_name}")
 
 plt.show()
-'''
 
+'''
 import pandas as pd
 
 aidsvu_file = 'data/AIDSVu_County_SDOH_2020.csv'
@@ -72,7 +72,7 @@ columns_to_drop = ['GEO ID', 'State Abbreviation', 'County', 'State_x', 'nh_coun
 merged2 = merged.drop(columns=columns_to_drop, errors='ignore')
 
 merged2 = merged.dropna()
-
+merged2 = merged2.rename(columns={'Rates of Persons, aged 55+, Living with HIV, 2020': 'hiv55+'})
 
 from sklearn.model_selection import train_test_split, cross_val_score, KFold
 from sklearn.linear_model import LinearRegression
@@ -84,7 +84,7 @@ x = merged2[['Percent Living in Poverty', 'Percent High School Education',
             'Percent Unemployed', 'Percent Living with Severe Housing Cost Burden',
             'Syphilis Rate','avg_nh_score']]
 
-y = merged2['Rates of Persons, aged 55+, Living with HIV, 2020']
+y = merged2['hiv55+']
 
 lg = LinearRegression()
 pipeline = Pipeline(steps=[('m',lg)])
@@ -115,12 +115,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-long_df = pd.melt(merged2, id_vars='Rates of Persons, aged 55+, Living with HIV, 2020',
+long_df = pd.melt(merged2, id_vars='hiv55+',
                   value_vars=['Syphilis Rate', 'Median Household Income', 'Percent Living in Poverty'])
 
 
 g = sns.FacetGrid(long_df, col='variable', height=4, aspect=1, sharex=False, sharey=False, col_wrap=3)
-g = g.map(sns.regplot, 'value', 'Rates of Persons, aged 55+, Living with HIV, 2020', scatter_kws={'alpha':0.4}, line_kws={'color':'red'})
+g = g.map(sns.regplot, 'value', 'hiv55+', scatter_kws={'alpha':0.4}, line_kws={'color':'red'})
 
 g.set_axis_labels('', 'Rates of Persons, aged 55+, Living with HIV, 2020')
 

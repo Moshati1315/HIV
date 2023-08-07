@@ -1,6 +1,6 @@
 .PHONY: data
 
-# generating the data from the publicly available csv folder. Links for where files were downloaded located in sources.md
+# generating the data from the publicly available csv folder. Links for where files were downloaded located in sourcesmake re.md
 data: mapping merge
 
 model:
@@ -23,5 +23,3 @@ clean:
 	rm data/v1stateFIPS_df.csv
 
 # Group 3
-
-
