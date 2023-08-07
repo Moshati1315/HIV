@@ -1,6 +1,6 @@
 .PHONY: data
 
-# generating the data from the publicly available csv folder. Links for where files were downloaded located in data.md
+# generating the data from the publicly available csv folder. Links for where files were downloaded located in sources.md
 data: mapping merge
 
 model:
