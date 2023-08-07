@@ -31,19 +31,19 @@ https://www2.census.gov/geo/tiger/GENZ2018/shp/cb_2018_us_county_500k.zip
 
 included files:
 
-cb_2018_us_county_500k.cpg
+- cb_2018_us_county_500k.cpg
 
-cb_2018_us_county_500k.dbf
+- cb_2018_us_county_500k.dbf
 
-cb_2018_us_county_500k.prj
+- cb_2018_us_county_500k.prj
 
-cb_2018_us_county_500k.shp
+- cb_2018_us_county_500k.shp
 
-cb_2018_us_county_500k.shp.ea.iso.xml
+- cb_2018_us_county_500k.shp.ea.iso.xml
 
-cb_2018_us_county_500k.shp.iso.xml
+- cb_2018_us_county_500k.shp.iso.xml
 
-cb_2018_us_county_500k.shx
+- cb_2018_us_county_500k.shx
 
 
 ### Generated csvs
