@@ -1,39 +1,59 @@
-# Import necessary libraries
-from sklearn.model_selection import train_test_split
+import pandas as pd
+
+aidsvu_file = 'data/AIDSVu_County_SDOH_2020.csv'
+county_file = 'data/county.csv'
+join_ages_file_path = 'data/join_ages.csv'
+
+aidsvu_file_df = pd.read_csv(aidsvu_file)
+county_file_df = pd.read_csv(county_file)
+join_ages_df = pd.read_csv(join_ages_file_path)
+
+county_file_df = county_file_df.rename(columns={"county": "County"})
+aidsvu_file_df['County'] = aidsvu_file_df['County'].str.replace(' County', '')
+
+merged_temp = pd.merge(aidsvu_file_df, county_file_df, on='County', how='left')
+merged = pd.merge(merged_temp, join_ages_df, on='County', how='left')
+
+columns_to_drop = ['GEO ID', 'State Abbreviation', 'County', 'State_x', 'nh_count', 'State_y', 'state_x', 'priority',	'county', 	'state_y', 'Region', 'GEOID',	'LSAD',	'ALAND',	'AWATER', 'geometry', 'Unnamed: 0.1', 	'Unnamed: 0', 	'STATEFP', 	'COUNTYFP',	'COUNTYNS',	'AFFGEOID', 'hiv_rate', 'Rates of Persons, aged 45 to 54, Living with HIV, 2020','Rates of Persons, aged 55+, Living with HIV, 2020', 'HIV aged 45+' ]
+merged = merged.drop(columns=columns_to_drop, errors='ignore')
+
+merged = merged.dropna()
+merged = merged[merged['Rates of Persons Living with HIV, 2020'] != 'undefined']
+merged['Rates of Persons Living with HIV, 2020'] = pd.to_numeric(merged['Rates of Persons Living with HIV, 2020'], errors='coerce')
+
+merged.head()
+
+from sklearn.model_selection import train_test_split, cross_val_score, KFold
 from sklearn.linear_model import LinearRegression
-from sklearn import metrics
+from sklearn.pipeline import Pipeline
+import numpy as np
 
-# Define the features (X) and the target (y)
-X = merged_df[['avg_nh_score', 'Percent Living in Poverty', 'Percent High School Education', 'Median Household Income', 'Gini Coefficient', 'Percent Uninsured', 'Percent Unemployed', 'Percent Living with Severe Housing Cost Burden', 'Syphilis Rate']]
-y = merged_df['Rates of Persons Living with HIV, 2020']
+x = merged[['Percent Living in Poverty', 'Percent High School Education',
+            'Median Household Income', 'Gini Coefficient', 'Percent Uninsured',
+            'Percent Unemployed', 'Percent Living with Severe Housing Cost Burden',
+            'Syphilis Rate', 'avg_nh_score']]
 
-# Split the dataset into training set and test set
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+y = merged['Rates of Persons Living with HIV, 2020']
 
-# Create a Linear Regression model
-lr = LinearRegression()
+lg = LinearRegression()
+pipeline = Pipeline(steps=[('m',lg)])
 
-# Fit the model with the training data
-lr.fit(X_train, y_train)
+n_scores = cross_val_score(pipeline, x, y, cv=KFold(n_splits=10, shuffle=True, random_state=1))
 
-# Predict the target for the test set
-y_pred = lr.predict(X_test)
+print('Cross-validated R^2:', np.mean(n_scores))
+
+from sklearn.linear_model import LassoCV
+
+lasso = LassoCV(cv=KFold(n_splits=10, shuffle=True, random_state=1))
 
 
-# Print train and test scores
-print("Train Score:", lr.score(X_train, y_train))
-print("Test Score:", lr.score(X_test, y_test))
-coefficients = lr.coef_
+pipeline = Pipeline(steps=[('m',lasso)])
 
-from sklearn.feature_selection import RFE
-from sklearn.linear_model import LinearRegression
 
-# Create a base classifier
-lr = LinearRegression()
+pipeline.fit(x, y)
 
-# Create the RFE model and select 3 attributes
-rfe = RFE(lr, n_features_to_select=3, step=1)
-rfe = rfe.fit(X, y)
 
-# Summarize the selection of the attributes
-print('Selected features: %s' % list(X.columns[rfe.support_]))
+lasso_coef = pd.Series(pipeline.named_steps['m'].coef_, index = x.columns)
+
+print("Top 3 features selected by Lasso:")
+print(lasso_coef.abs().sort_values(ascending=False).head(3).index.tolist())

@@ -31,7 +31,7 @@ hiv_45 = pd.read_csv('data/county45_54.csv').dropna()
 #data55= "https://raw.githubusercontent.com/ds5110/project-summer-2023-moriarity-tim/main/data/county55%2B.csv?token=GHSAT0AAAAAACDRJ3D7SRNYFI2DI32GIL3GZGJTNJQ"
 hiv_55 = pd.read_csv('data/county55%2B.csv').dropna()
 
-#all_data= "https://raw.githubusercontent.com/ds5110/project-summer-2023-moriarity-tim/main/data/county55%2B.csv?token=GHSAT0AAAAAACDRJ3D7SRNYFI2DI32GIL3GZGJTNJQ"
+#all_data= "https://raw.githubusercontent.com/ds5110/project-summer-2023-moriarity-tim/main/data/county.csv?token=GHSAT0AAAAAACDRJ3D7AM27UXKLQJIPYDTCZGOXSGA"
 all_df = pd.read_csv('data/county.csv')
 
 
