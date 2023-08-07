@@ -20,3 +20,6 @@ The focus of the project is to look at what if any the quality of the nursing ho
 This will be built off of the work done by Groups 1 & 2.
 
 Using a revised data pipeline implemented by the previous two groups we will be doing predictive modeling using nursing home score among our features. If the hypothesis holds true we should see an inverese relationship between nursing home score and HIV prevalence.
+
+
+Group 3

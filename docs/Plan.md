@@ -42,3 +42,7 @@ Both members will be working on all parts of the project with each having a focu
 Tim - Script & Repo Management
 
 Mohammed - Front Facing Management
+
+
+
+Group 3
