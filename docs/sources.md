@@ -45,10 +45,12 @@ cb_2018_us_county_500k.shp.iso.xml
 cb_2018_us_county_500k.shx
 
 
+### Generated csvs
+
 stateFIPS.csv - https://www.bls.gov/respondents/mwr/electronic-data-interchange/appendix-d-usps-state-abbreviations-and-fips-codes.htm
 
-    - created by group 1 for the project taken from the table shown at this link.
+- created by group 1 for the project taken from the table shown at this link.
 
 jurisdiction.csv - https://files.hiv.gov/s3fs-public/Ending-the-HIV-Epidemic-Counties-and-Territories.pdf
 
-    - was generated from the pdf by Group 1
+- was generated from the pdf by Group 1
