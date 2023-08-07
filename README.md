@@ -39,7 +39,7 @@ make model
 
 ### Referencing
 
-repo - https://github.com/ds5110/project-summer-2023-moriarity-tim
+sources.md in src folder
 
 ##### We are building off the work of two previous groups.
 
@@ -57,3 +57,5 @@ repo - https://github.com/ds5110/project-summer-2023-moriarity-tim
 * Nicholas Letarte
 * https://github.com/ds5110/projects-spring-2023-ahaskell83/tree/main
 
+
+Group 3
