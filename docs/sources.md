@@ -1,7 +1,7 @@
 # Data Sources for preloaded CSVs in data folder
 
-## AIDSVu:
-''' Prevelence rates and SDOH for AIDS data downloaded from AIDSVu interactive dataset- no url
+### AIDSVu:
+Prevelence rates and SDOH for AIDS data downloaded from AIDSVu interactive dataset- no url
 for csv available. 
 
 AIDSVu_County_SDOH_2020.csv - https://aidsvu.org/wp-content/uploads/2022/11/AIDSVu_County_SDOH_2020.xlsx
@@ -15,13 +15,13 @@ county45_54.csv - https://map.aidsvu.org/map
 county55%2B.csv - https://map.aidsvu.org/map
     - obtained the same way as above, except must be done after changing the age filter at the top left of the screen to 55+.
 
-# Nursing home data
+### Nursing home data
 
 NH_ProviderInfo_May2023.csv - https://data.cms.gov/provider-data/archived-data/nursing-homes#2023-annual-files
     - Taken from the May zip file.
 
 
-# Census data
+### Census data
 
 This link will directly download the zipped folder to your computer. 
 The files inside are listed below.
