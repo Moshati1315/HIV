@@ -35,7 +35,13 @@ We are looking to see if the rating of an areas nursing homes has an impact on H
 ```
 make model
 ```
+### Results
 
+Creates figures.
+
+```
+make results
+```
 
 ### Referencing
 
