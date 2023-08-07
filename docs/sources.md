@@ -7,7 +7,6 @@ for csv available.
 AIDSVu_County_SDOH_2020.csv - https://aidsvu.org/wp-content/uploads/2022/11/AIDSVu_County_SDOH_2020.xlsx
 
 county.csv - https://map.aidsvu.org/map
-
     - can be obtained by clicking the download data option at the bottom of the page listed above, and following pop out to download csv.
 
 county45_54.csv - https://map.aidsvu.org/map
