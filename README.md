@@ -37,11 +37,24 @@ make model
 ```
 ### Results
 
-Creates figures.
+Creates figures & results.
 
 ```
 make results
 ```
+```
+Cross-validated R^2: 0.0060534304566499
+Top 3 features selected by Lasso:
+['Percent Living in Poverty', 'Syphilis Rate', 'Percent Living with Severe Housing Cost Burden']
+```
+<img src="figs/fullpopulation.png" width="500px">
+
+```
+Cross-validated R^2: 0.011645046654678281
+Top 3 features selected by Lasso:
+['Syphilis Rate', 'Median Household Income', 'Percent Living in Poverty']
+```
+<img src="figs/55+population.png" width="500px">
 
 ### Referencing
 

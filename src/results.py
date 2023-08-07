@@ -48,7 +48,7 @@ axes[1].set_xlabel('Percent Living in Poverty')
 axes[2].set_xlabel('Syphilis Rate')
 
 g.set_titles(col_template="{col_name}")
-
+#plt.savefig('figs/fullpopulation.png')
 plt.show()
 
 
@@ -140,4 +140,5 @@ for ax in g.axes.flat:
 g.set_titles(col_template="{col_name}")
 
 plt.tight_layout()
+#plt.savefig('figs/55+population.png')
 plt.show()
