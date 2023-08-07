@@ -108,7 +108,8 @@ pipeline.fit(x, y)
 
 lasso_coef = pd.Series(pipeline.named_steps['m'].coef_, index = x.columns)
 
-
+print("Linear Regression")
+print("55+ Population")
 print("Top 3 features selected by Lasso:")
 print(lasso_coef.abs().sort_values(ascending=False).head(3).index.tolist())
 

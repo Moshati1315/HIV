@@ -43,6 +43,8 @@ Creates figures & results.
 make results
 ```
 ```
+Linear Regression
+Full Population
 Cross-validated R^2: 0.0060534304566499
 Top 3 features selected by Lasso:
 ['Percent Living in Poverty', 'Syphilis Rate', 'Percent Living with Severe Housing Cost Burden']
@@ -50,6 +52,8 @@ Top 3 features selected by Lasso:
 <img src="figs/fullpopulation.png" width="500px">
 
 ```
+Linear Regression
+55+ Population
 Cross-validated R^2: 0.011645046654678281
 Top 3 features selected by Lasso:
 ['Syphilis Rate', 'Median Household Income', 'Percent Living in Poverty']
