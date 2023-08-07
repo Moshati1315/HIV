@@ -51,7 +51,7 @@ g.set_titles(col_template="{col_name}")
 
 plt.show()
 
-'''
+
 import pandas as pd
 
 aidsvu_file = 'data/AIDSVu_County_SDOH_2020.csv'
@@ -69,10 +69,12 @@ merged_temp = pd.merge(aidsvu_file_df, county_file_df, on='County', how='left')
 merged2 = pd.merge(merged_temp, join_ages_df, on='County', how='left')
 
 columns_to_drop = ['GEO ID', 'State Abbreviation', 'County', 'State_x', 'nh_count', 'State_y', 'state_x', 'priority',	'county', 	'state_y', 'Region', 'GEOID',	'LSAD',	'ALAND',	'AWATER', 'geometry', 'Unnamed: 0.1', 	'Unnamed: 0', 	'STATEFP', 	'COUNTYFP',	'COUNTYNS',	'AFFGEOID', 'hiv_rate', 'Rates of Persons, aged 45 to 54, Living with HIV, 2020', 'HIV aged 45+' ]
-merged2 = merged.drop(columns=columns_to_drop, errors='ignore')
+merged2 = merged2.drop(columns=columns_to_drop, errors='ignore')
 
-merged2 = merged.dropna()
+merged2 = merged2.dropna()
 merged2 = merged2.rename(columns={'Rates of Persons, aged 55+, Living with HIV, 2020': 'hiv55+'})
+merged2 = merged2[merged2['hiv55+'] != 'undefined']
+merged2['hiv55+'] = pd.to_numeric(merged2['hiv55+'], errors='coerce')
 
 from sklearn.model_selection import train_test_split, cross_val_score, KFold
 from sklearn.linear_model import LinearRegression
@@ -139,4 +141,3 @@ g.set_titles(col_template="{col_name}")
 
 plt.tight_layout()
 plt.show()
-'''
