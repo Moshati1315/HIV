@@ -11,9 +11,9 @@ results:
 
 mapping:
 	python -B src/mapping.py
+	python -B src/gdf2.py
 
 merge:
-	python -B src/gdf2.py
 	python -B src/merge.py
 
 # to clean created data
