@@ -6,7 +6,7 @@ data: mapping merge
 model:
 	python -B src/regression.py
 
-results:
+m55:
 	python -B src/results.py
 
 mapping:

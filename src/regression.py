@@ -1,4 +1,4 @@
-import pandas as pd
+from imports import *
 
 aidsvu_file = 'data/AIDSVu_County_SDOH_2020.csv'
 county_file = 'data/county.csv'
@@ -21,13 +21,6 @@ merged = merged.dropna()
 merged = merged[merged['Rates of Persons Living with HIV, 2020'] != 'undefined']
 merged['Rates of Persons Living with HIV, 2020'] = pd.to_numeric(merged['Rates of Persons Living with HIV, 2020'], errors='coerce')
 
-merged.head()
-
-from sklearn.model_selection import train_test_split, cross_val_score, KFold
-from sklearn.linear_model import LinearRegression
-from sklearn.pipeline import Pipeline
-import numpy as np
-
 x = merged[['Percent Living in Poverty', 'Percent High School Education',
             'Median Household Income', 'Gini Coefficient', 'Percent Uninsured',
             'Percent Unemployed', 'Percent Living with Severe Housing Cost Burden',
@@ -35,14 +28,38 @@ x = merged[['Percent Living in Poverty', 'Percent High School Education',
 
 y = merged['Rates of Persons Living with HIV, 2020']
 
+# Making Histogram
+features = x.columns.to_list()
+melted_data = merged[features].melt()
+
+g = sns.FacetGrid(melted_data, col="variable", col_wrap=3, sharex=False, height=4)
+g.map(sns.histplot, "value", bins=30, kde=False)
+g.set_axis_labels("Value", "Counts")
+
+# Set the x-axis label for each facet to its corresponding feature
+for ax, title in zip(g.axes.flat, features):
+    ax.set_xlabel(title)
+    ax.set_title('')  # Clear the title
+
+# Rotate x-axis labels for "Median Household Income" plot
+g.set_xticklabels(rotation=30)
+
+g.tight_layout()
+plt.savefig('figs/fullpopulation.png')
+plt.show()
+
 lg = LinearRegression()
 pipeline = Pipeline(steps=[('m',lg)])
 
 n_scores = cross_val_score(pipeline, x, y, cv=KFold(n_splits=10, shuffle=True, random_state=1))
 
-print('Cross-validated R^2:', np.mean(n_scores))
 
-from sklearn.linear_model import LassoCV
+print("\n\nLinear Regression - Full Population\n")
+
+results = sm.OLS(y,x, hasconst=True).fit()
+print(results.summary())  
+
+print('\n Cross-validated R^2:', np.mean(n_scores))
 
 lasso = LassoCV(cv=KFold(n_splits=10, shuffle=True, random_state=1))
 
@@ -55,7 +72,6 @@ pipeline.fit(x, y)
 
 lasso_coef = pd.Series(pipeline.named_steps['m'].coef_, index = x.columns)
 
-print("Linear Regression")
-print("Full Population")
-print("Top 3 features selected by Lasso:")
-print(lasso_coef.abs().sort_values(ascending=False).head(3).index.tolist())
+print("\nRanked features by Lasso:\n")
+print(lasso_coef.abs().sort_values(ascending=False))
+print('\n Unfortunately Average Nursing Home Score is at the bottom of the list.')
