@@ -82,8 +82,7 @@ The indepth results can be found in docs folder results.md, including a recreati
 
 ```
 
-##### Second model 
-- only populations above age 55 HIV prevalence rates used as a dependent variable.
+#### Second model - only populations above age 55 HIV prevalence rates used as a dependent variable.
 
 Creates a model with only 55+ age group.
 
