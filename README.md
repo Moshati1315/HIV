@@ -81,6 +81,7 @@ strong multicollinearity or other numerical problems.
 The indepth results can be found in docs folder results.md, including a recreation of this summary as well as cross validated rsquared scores, lasso feature reduction ranks, and analysis. 
 
 ```
+```
 make m55
 ```
 Creates a model with only 55+ age group, returning the same output as the previous command just using the adjusted dependent variable.
