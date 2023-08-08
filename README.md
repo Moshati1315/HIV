@@ -38,7 +38,7 @@ We are looking to see if the rating of an areas nursing homes has an impact on H
 ```
 make model
 ```
-Creates figures & results.
+Creates figures & results whcih are partially shown below and in full detail in the results.md file in the docs folder.
 ```
 
 Linear Regression - Full Population
@@ -81,10 +81,16 @@ strong multicollinearity or other numerical problems.
 The indepth results can be found in docs folder results.md, including a recreation of this summary as well as cross validated rsquared scores, lasso feature reduction ranks, and analysis. 
 
 ```
+
+##### Second model 
+- only populations above age 55 HIV prevalence rates used as a dependent variable.
+
+Creates a model with only 55+ age group.
+
 ```
 make m55
 ```
-Creates a model with only 55+ age group, returning the same output as the previous command just using the adjusted dependent variable.
+The results are in the results.md file. 
 
 
 ### Referencing
