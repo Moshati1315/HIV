@@ -9,9 +9,9 @@ Based on our hypothesis we ran a basic linear regression model on the whole data
 The model did not do well. This is seen in our R-squared score of 0.006
 
 Though we did find it surprising that so many of the features were so strongly significant.
-'''
-Linear Regression - Full Population
 
+Linear Regression - Full Population
+'''
                                       OLS Regression Results
 ==================================================================================================
 Dep. Variable:     Rates of Persons Living with HIV, 2020   R-squared:                       0.006
@@ -46,6 +46,7 @@ Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 [2] The condition number is large, 2.22e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
+'''
 
 We then got a averaged Rsquared score from a 10 fold cross-validation of our model shown below.
 
@@ -65,7 +66,7 @@ Percent Uninsured                                 0.000000
 Percent Unemployed                                0.000000
 avg_nh_score                                      0.000000
 dtype: float64
-'''
+
 This shows that following the use of Lasso cross-validation our feature of interest, avg_nh_score, is the least relavent. 
 
 We repeated the same modeling and cross-validation with an abbreviated dataset looking at only populations about 55 years old.
@@ -110,7 +111,6 @@ Notes:
 strong multicollinearity or other numerical problems.
 
 '''
-
 Cross-validated R^2: 0.011645046654678281
 
 Ranked features by Lasso:
@@ -126,7 +126,7 @@ Percent Living with Severe Housing Cost Burden    0.000000
 avg_nh_score                                      0.000000
 dtype: float64
 
-
+###
 This model found Syphilis rate to be a stronger feature the Percent Living in Poverty, which was the top feature after lasso in the previous model using the entire population. Unfortunately both models found the avg_nh_score to be the least important of the features. 
 
 This can likely be contributed to a couple of different factors. Firstly the nursing home score itself has its own issue as a metric of measure for one of our features. As it is a generated metric there may be variables that go into its creation that would be better suited for this modeling. 
