@@ -9,7 +9,7 @@ Based on our hypothesis we ran a basic linear regression model on the whole data
 The model did not do well. This is seen in our R-squared score of 0.006
 
 Though we did find it surprising that so many of the features were so strongly significant.
-
+'''
 Linear Regression - Full Population
 
                                       OLS Regression Results
@@ -65,11 +65,12 @@ Percent Uninsured                                 0.000000
 Percent Unemployed                                0.000000
 avg_nh_score                                      0.000000
 dtype: float64
-
+'''
 This shows that following the use of Lasso cross-validation our feature of interest, avg_nh_score, is the least relavent. 
 
 We repeated the same modeling and cross-validation with an abbreviated dataset looking at only populations about 55 years old.
 
+'''
 
 Linear Regression - 55+ Population
 
@@ -108,6 +109,8 @@ Notes:
 [2] The condition number is large, 2.22e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
 
+'''
+
 Cross-validated R^2: 0.011645046654678281
 
 Ranked features by Lasso:
@@ -122,6 +125,7 @@ Percent Unemployed                                0.000000
 Percent Living with Severe Housing Cost Burden    0.000000
 avg_nh_score                                      0.000000
 dtype: float64
+
 
 This model found Syphilis rate to be a stronger feature the Percent Living in Poverty, which was the top feature after lasso in the previous model using the entire population. Unfortunately both models found the avg_nh_score to be the least important of the features. 
 
