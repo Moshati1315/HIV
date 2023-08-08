@@ -63,7 +63,7 @@ print("\n\nLinear Regression - 55+ Population\n")
 results = sm.OLS(y,x, hasconst=True).fit()
 print(results.summary())  
 
-print('Cross-validated R^2:', np.mean(n_scores))
+print('\nCross-validated R^2:', np.mean(n_scores))
 
 lasso = LassoCV(cv=KFold(n_splits=10, shuffle=True, random_state=1))
 
@@ -75,6 +75,6 @@ pipeline.fit(x, y)
 lasso_coef = pd.Series(pipeline.named_steps['m'].coef_, index = x.columns)
 
 
-print("Ranked features by Lasso:")
+print("\nRanked features by Lasso:\n")
 print(lasso_coef.abs().sort_values(ascending=False))
 print('\n Unfortunately Average Nursing Home Score is at the bottom of the list. Again.')

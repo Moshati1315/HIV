@@ -134,8 +134,11 @@ Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 [2] The condition number is large, 2.22e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
+
 Cross-validated R^2: 0.011645046654678281
+
 Ranked features by Lasso:
+
 Syphilis Rate                                     0.189570
 Median Household Income                           0.000289
 Percent Living in Poverty                         0.000000
