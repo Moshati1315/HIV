@@ -1,9 +1,5 @@
 This project built off the work of two previous groups. The first issue we encountered was creating a pipeline of transparent code to reproduce the datasets the other groups had created. This involved tracking down where intial files were downloaded from, and in some cases created from all of which can be found in docs/sources.md
 
-The Histogram below gives a look at the distributions of the features.
-
-<img src="figs/fullpopulation.png" width="750px">
-
 Based on our hypothesis we ran a basic linear regression model on the whole dataset with the included list of features seen in the summary table below.
 
 The model did not do well. This is seen in our R-squared score of 0.006
