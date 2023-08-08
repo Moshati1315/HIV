@@ -150,7 +150,6 @@ Percent Living with Severe Housing Cost Burden    0.000000
 avg_nh_score                                      0.000000
 dtype: float64
 ```
-<img src="figs/55+population.png" width="750px">
 
 ### Referencing
 
