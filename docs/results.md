@@ -102,6 +102,7 @@ Notes:
 strong multicollinearity or other numerical problems.
 ```
 
+```
 Cross-validated R^2: 0.07993875251666359
 
 Ranked features by Lasso:
@@ -116,7 +117,7 @@ Percent Unemployed                                0.000000
 Percent Living with Severe Housing Cost Burden    0.000000
 avg_nh_score                                      0.000000
 dtype: float64
-
+```
 
 This model found Syphilis rate to be a stronger feature the Percent Living in Poverty, which was the top feature after lasso in the previous model using the entire population. Unfortunately both models found the avg_nh_score to be the least important of the features. 
 
