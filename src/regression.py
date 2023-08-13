@@ -76,7 +76,7 @@ plt.show()
 lg = LinearRegression()
 pipeline = Pipeline(steps=[('m',lg)])
 
-n_scores = cross_val_score(pipeline, x, y, cv=KFold(n_splits=10, shuffle=True, random_state=1))
+n_scores = cross_val_score(pipeline, x, y, cv=KFold(n_splits=5, shuffle=True, random_state=1))
 
 
 print("\n\nLinear Regression - Full Population\n")
@@ -101,3 +101,7 @@ print("\nRanked features by Lasso:\n")
 print(lasso_coef.abs().sort_values(ascending=False))
 print('\n Unfortunately Average Nursing Home Score is not statistically significant\n along with being ranked last using Lasso feature selection.')
 print('\n Not overly surprising since this model looks at HIV rates for all ages,\n and nursing home score is likely only relevant to an older age group.\nRun make m55 to look at just an older age group.')
+
+
+
+# Group 3 - MS & TM

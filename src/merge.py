@@ -95,4 +95,4 @@ This file is a combination of the group 1 scatter3.py & scatter4.py as well as G
 Some code was removed and modified by Group 3
 
 '''
-
+# Group 2 - Modified by Group 3 - TM

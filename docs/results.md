@@ -2,8 +2,6 @@ This project built off the work of two previous groups. The first issue we encou
 
 Based on our hypothesis we ran a basic linear regression model on the whole dataset with the included list of features seen in the summary table below.
 
-The model did not do well. This is seen in our R-squared score of 0.086
-
 ### Model 1 - Full Population
 
 Linear Regression - Full Population
@@ -46,10 +44,12 @@ Notes:
 strong multicollinearity or other numerical problems.
 ```
 
-##### Cross Validation
+##### Cross Validation - 5 Fold
 ```
-Cross-validated R^2: 0.08393503551491376
+Cross-validated R^2: 0.07248325675585485
 ```
+The model did not do well. This is seen in our R-squared score of 0.086, cross-validated to 0.084.
+
 ##### Lasso Rankings
 ```
 Ranked features by Lasso:
@@ -66,12 +66,15 @@ avg_nh_score                                      0.000000
 dtype: float64
 ```
 
-Unfortunately Average Nursing Home Score is not statistically significant along with being ranked last using Lasso feature selection.
+Average Nursing Home Score is not statistically significant along with being ranked last using Lasso feature selection.
+This is not an overly surprising finding as this includes a larger population many of which are likely not impacted by nursing home care.
 
 ### Model 2 - 55+ Population
 
 
 We repeated the same modeling and cross-validation with an abbreviated dataset looking at only populations about 55 years old.
+Hypothesizing that nursing home score would be more relevant to an older population.
+
 ```
 Linear Regression - 55+ Population
 
@@ -110,9 +113,9 @@ Notes:
 [2] The condition number is large, 2.01e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
 ```
-##### Cross Validation
+##### Cross Validation - 5 Fold
 ```
-Cross-validated R^2: 0.07993875251666359
+Cross-validated R^2: 0.0941696682454305
 ```
 ##### Lasso Rankings
 ```

@@ -66,7 +66,7 @@ plt.show()
 lg = LinearRegression()
 pipeline = Pipeline(steps=[('m',lg)])
 
-n_scores = cross_val_score(pipeline, x, y, cv=KFold(n_splits=10, shuffle=True, random_state=1))
+n_scores = cross_val_score(pipeline, x, y, cv=KFold(n_splits=5, shuffle=True, random_state=1))
 #x = x.dropna()
 #y = y.loc[x.index]
 
@@ -89,4 +89,5 @@ lasso_coef = pd.Series(pipeline.named_steps['m'].coef_, index = x.columns)
 
 print("\nRanked features by Lasso:\n")
 print(lasso_coef.abs().sort_values(ascending=False))
-#print('\n Unfortunately Average Nursing Home Score is at the bottom of the list. Again.')
+
+# Group 3 - MS & TM

@@ -71,3 +71,6 @@ print('\nFirst 7 Features Selected by Backward Selection: \n\n',feature_names[sf
 sfs_forward = SequentialFeatureSelector(ridge, n_features_to_select=8, direction="backward").fit(x, y)
 print('\nFirst 8 Features Selected by Backward Selection: \n\n',feature_names[sfs_forward.get_support()])
 #print('\n\nUnfortunately avg_nh_score is the 7th feature selected. Again.')
+
+
+# Group 3 - TM

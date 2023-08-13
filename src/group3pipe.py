@@ -124,3 +124,5 @@ merged = merged[merged['hiv55+'] != 'undefined']
 merged = merged.dropna()
 # CSV of FINAL Dataframe
 merged.to_csv('data/group3data.csv')
+
+# Group 1 & 2 - Merging/Modifying of multiple files Group 3 - TM

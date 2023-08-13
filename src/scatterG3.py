@@ -1,7 +1,5 @@
+from imports import sns, plt, pd
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-import pandas as pd
 
 merged = pd.read_csv('data/group3data.csv')
 
@@ -24,3 +22,5 @@ g.fig.suptitle('Scatter Plots of Predictors vs. Rates of Persons Living with HIV
 
 plt.savefig('figs/FeatureScatter.png')
 plt.show()
+
+# Group 3 - MS

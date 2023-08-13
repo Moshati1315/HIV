@@ -11,6 +11,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 #Needed to recreate Group 2 work
+
 #import geopandas as gpd
 #import plotly.express as px
 
@@ -24,4 +25,4 @@ import statsmodels.api as sm
 from sklearn.preprocessing import StandardScaler, PolynomialFeatures
 from sklearn.metrics import mean_squared_error
 
-# Group 1 - Modified by Group 3
+# Group 1 - Modified by Group 3 - T
