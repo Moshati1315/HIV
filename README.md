@@ -43,10 +43,11 @@ This histogram shows the distributions of the features:
 
 <img src="figs/fullpopulation.png" width="750px">
 
-
-
+This shows the outliers in the features:
 
 <img src="figs/FeatureBox.png" width="750px">
+
+This shows any correlation amongst the features:
 
 <img src="figs/heatmap.png" width="750px">
 
