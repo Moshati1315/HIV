@@ -1,4 +1,6 @@
 from imports import *
+'''
+Saving old Code
 
 aidsvu_file = 'data/AIDSVu_County_SDOH_2020.csv'
 county_file = 'data/county.csv'
@@ -16,6 +18,25 @@ merged = pd.merge(merged_temp, join_ages_df, on='County', how='left')
 
 columns_to_drop = ['GEO ID', 'State Abbreviation', 'County', 'State_x', 'nh_count', 'State_y', 'state_x', 'priority',	'county', 	'state_y', 'Region', 'GEOID',	'LSAD',	'ALAND',	'AWATER', 'geometry', 'Unnamed: 0.1', 	'Unnamed: 0', 	'STATEFP', 	'COUNTYFP',	'COUNTYNS',	'AFFGEOID', 'hiv_rate', 'Rates of Persons, aged 45 to 54, Living with HIV, 2020','Rates of Persons, aged 55+, Living with HIV, 2020', 'HIV aged 45+' ]
 merged = merged.drop(columns=columns_to_drop, errors='ignore')
+
+merged = merged.dropna()
+merged = merged[merged['Rates of Persons Living with HIV, 2020'] != 'undefined']
+merged['Rates of Persons Living with HIV, 2020'] = pd.to_numeric(merged['Rates of Persons Living with HIV, 2020'], errors='coerce')
+
+aidsvu_file_df = pd.read_csv('data/AIDSVu_County_SDOH_2020.csv')
+county_file_df = pd.read_csv('data/county.csv')
+join_ages_df = pd.read_csv('data/join_ages.csv')
+
+county_file_df = county_file_df.rename(columns={"county": "County"})
+aidsvu_file_df['County'] = aidsvu_file_df['County'].str.replace(' County', '')
+
+merged_temp = pd.concat([aidsvu_file_df, county_file_df], axis=1)
+merged = pd.concat([merged_temp, join_ages_df], axis=1)
+'''
+#merged_temp = pd.merge(aidsvu_file_df, county_file_df, how='outer', on=['County','County'])
+#merged = pd.merge(merged_temp, join_ages_df, how='outer', on=['County','County'])
+
+merged = pd.read_csv('data/group3data.csv')
 
 merged = merged.dropna()
 merged = merged[merged['Rates of Persons Living with HIV, 2020'] != 'undefined']
@@ -74,4 +95,5 @@ lasso_coef = pd.Series(pipeline.named_steps['m'].coef_, index = x.columns)
 
 print("\nRanked features by Lasso:\n")
 print(lasso_coef.abs().sort_values(ascending=False))
-print('\n Unfortunately Average Nursing Home Score is at the bottom of the list.')
+print('\n Unfortunately Average Nursing Home Score is not statistically significant\n along with being ranked last using Lasso feature selection.')
+print('\n Not overly surprising since this model looks at HIV rates for all ages,\n and nursing home score is likely only relevant to an older age group.\nRun make m55 to look at just an older age group.')

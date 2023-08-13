@@ -1,5 +1,5 @@
 from imports import *
-
+'''
 aidsvu_file = 'data/AIDSVu_County_SDOH_2020.csv'
 county_file = 'data/county.csv'
 join_ages_file_path = 'data/join_ages.csv'
@@ -11,28 +11,39 @@ join_ages_df = pd.read_csv(join_ages_file_path)
 county_file_df = county_file_df.rename(columns={"county": "County"})
 aidsvu_file_df['County'] = aidsvu_file_df['County'].str.replace(' County', '')
 
-merged_temp = pd.merge(aidsvu_file_df, county_file_df, on='County', how='left')
-merged2 = pd.merge(merged_temp, join_ages_df, on='County', how='left')
+'''
+'''
+aidsvu_file_df = pd.read_csv('data/AIDSVu_County_SDOH_2020.csv')
+county_file_df = pd.read_csv('data/county.csv')
+join_ages_df = pd.read_csv('data/join_ages.csv')
 
-columns_to_drop = ['GEO ID', 'State Abbreviation', 'County', 'State_x', 'nh_count', 'State_y', 'state_x', 'priority',	'county', 	'state_y', 'Region', 'GEOID',	'LSAD',	'ALAND',	'AWATER', 'geometry', 'Unnamed: 0.1', 	'Unnamed: 0', 	'STATEFP', 	'COUNTYFP',	'COUNTYNS',	'AFFGEOID', 'hiv_rate', 'Rates of Persons, aged 45 to 54, Living with HIV, 2020', 'HIV aged 45+' ]
-merged2 = merged2.drop(columns=columns_to_drop, errors='ignore')
+county_file_df = county_file_df.rename(columns={"county": "County"})
+aidsvu_file_df['County'] = aidsvu_file_df['County'].str.replace(' County', '')
 
-merged2 = merged2.dropna()
-merged2 = merged2.rename(columns={'Rates of Persons, aged 55+, Living with HIV, 2020': 'hiv55+'})
-merged2 = merged2[merged2['hiv55+'] != 'undefined']
-merged2['hiv55+'] = pd.to_numeric(merged2['hiv55+'], errors='coerce')
+merged_temp = pd.concat([aidsvu_file_df, county_file_df], axis=1)
+merged = pd.concat([merged_temp, join_ages_df], axis=1)
+'''
 
-x = merged2[['Percent Living in Poverty', 'Percent High School Education',
+merged = pd.read_csv('data/group3data.csv')
+
+merged = merged.rename(columns={'Rates of Persons, aged 55+, Living with HIV, 2020': 'hiv55+'})
+merged = merged[merged['hiv55+'] != 'undefined']
+#merged['hiv55+'] = pd.to_numeric(merged['hiv55+'], errors='coerce')
+merged = merged.dropna()
+#merged['hiv55+'] = merged['hiv55+'].astype(int)
+
+
+x = merged[['Percent Living in Poverty', 'Percent High School Education',
             'Median Household Income', 'Gini Coefficient', 'Percent Uninsured',
             'Percent Unemployed', 'Percent Living with Severe Housing Cost Burden',
             'Syphilis Rate','avg_nh_score']]
 
-y = merged2['hiv55+']
+y = merged['hiv55+']
 
 
 # Making Histogram
 features = x.columns.to_list()
-melted_data = merged2[features].melt()
+melted_data = merged[features].melt()
 
 g = sns.FacetGrid(melted_data, col="variable", col_wrap=3, sharex=False, height=4)
 g.map(sns.histplot, "value", bins=30, kde=False)
@@ -55,8 +66,8 @@ lg = LinearRegression()
 pipeline = Pipeline(steps=[('m',lg)])
 
 n_scores = cross_val_score(pipeline, x, y, cv=KFold(n_splits=10, shuffle=True, random_state=1))
-x = x.dropna()
-y = y.loc[x.index]
+#x = x.dropna()
+#y = y.loc[x.index]
 
 print("\n\nLinear Regression - 55+ Population\n")
 
@@ -77,4 +88,4 @@ lasso_coef = pd.Series(pipeline.named_steps['m'].coef_, index = x.columns)
 
 print("\nRanked features by Lasso:\n")
 print(lasso_coef.abs().sort_values(ascending=False))
-print('\n Unfortunately Average Nursing Home Score is at the bottom of the list. Again.')
+#print('\n Unfortunately Average Nursing Home Score is at the bottom of the list. Again.')
