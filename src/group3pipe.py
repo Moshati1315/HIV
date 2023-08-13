@@ -118,7 +118,9 @@ merged['nh_count'] = merged['nh_count'].astype(int)
 # new code 8/11
 #jur.to_csv('data/jur.csv')
 # Saving file in data folder
-
-
+merged = merged.rename(columns={'Rates of Persons, aged 55+, Living with HIV, 2020': 'hiv55+'})
+merged = merged[merged['hiv55+'] != 'undefined']
+#merged['hiv55+'] = pd.to_numeric(merged['hiv55+'], errors='coerce')
+merged = merged.dropna()
 # CSV of FINAL Dataframe
 merged.to_csv('data/group3data.csv')

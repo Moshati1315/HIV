@@ -1,6 +1,4 @@
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+from imports import pd, sns, plt
 
 merged = pd.read_csv('data/group3data.csv')
 

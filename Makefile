@@ -30,7 +30,10 @@ box:
 heatmap:
 	python -B src/heatmapG3.py
 
-plots: scatter heatmap box
+hist:
+	python -B src/histogramG3.py
+
+plots: scatter hist box heatmap 
 
 test:
 	python -B src/results_test.py

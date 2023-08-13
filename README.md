@@ -28,10 +28,23 @@ The necessary data can be recreated with the following command:
 ```
 make data
 ```
-This histogram shows the distributions of our features we are including:
-<img src="figs/fullpopulation.png" width="750px">
+### EDA
+
+```
+make plots
+```
+This scatter plot gives us a look at available features
+as well as our feature of interest average nursing home score
+compared with HIV prevalence rates:
 
 <img src="figs/FeatureScatter.png" width="750px">
+
+This histogram shows the distributions of the features:
+
+<img src="figs/fullpopulation.png" width="750px">
+
+
+
 
 <img src="figs/FeatureBox.png" width="750px">
 

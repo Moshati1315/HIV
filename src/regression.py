@@ -49,6 +49,8 @@ x = merged[['Percent Living in Poverty', 'Percent High School Education',
 
 y = merged['Rates of Persons Living with HIV, 2020']
 
+'''
+
 # Making Histogram
 features = x.columns.to_list()
 melted_data = merged[features].melt()
@@ -68,6 +70,8 @@ g.set_xticklabels(rotation=30)
 g.tight_layout()
 plt.savefig('figs/fullpopulation.png')
 plt.show()
+
+'''
 
 lg = LinearRegression()
 pipeline = Pipeline(steps=[('m',lg)])

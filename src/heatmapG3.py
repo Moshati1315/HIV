@@ -1,4 +1,4 @@
-from imports import sns, sm, pd, np
+from imports import sns, sm, pd, np, plt
 
 merged = pd.read_csv('data/group3data.csv')
 value_vars_list = ['Median Household Income', 'Gini Coefficient', 'Percent Uninsured',
