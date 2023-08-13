@@ -7,6 +7,8 @@ The model did not do well. This is seen in our R-squared score of 0.086
 
 Linear Regression - Full Population
 
+```
+
                                       OLS Regression Results
 ==================================================================================================
 Dep. Variable:     Rates of Persons Living with HIV, 2020   R-squared:                       0.086
@@ -41,7 +43,7 @@ Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 [2] The condition number is large, 2.01e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
-
+```
  Cross-validated R^2: 0.08393503551491376
 
 Ranked features by Lasso:
@@ -61,50 +63,51 @@ dtype: float64
  along with being ranked last using Lasso feature selection.
 
 We repeated the same modeling and cross-validation with an abbreviated dataset looking at only populations about 55 years old.
-
+```
 Linear Regression - 55+ Population
 
                             OLS Regression Results
 ==============================================================================
-Dep. Variable:                 hiv55+   R-squared:                       0.012
-Model:                            OLS   Adj. R-squared:                  0.012
-Method:                 Least Squares   F-statistic:                     247.7
-Date:                Mon, 07 Aug 2023   Prob (F-statistic):               0.00
-Time:                        23:22:43   Log-Likelihood:            -1.0961e+06
-No. Observations:              168373   AIC:                         2.192e+06
-Df Residuals:                  168364   BIC:                         2.192e+06
+Dep. Variable:                 hiv55+   R-squared:                       0.138
+Model:                            OLS   Adj. R-squared:                  0.134
+Method:                 Least Squares   F-statistic:                     29.47
+Date:                Sun, 13 Aug 2023   Prob (F-statistic):           6.00e-43
+Time:                        14:56:46   Log-Likelihood:                -10239.
+No. Observations:                1478   AIC:                         2.050e+04
+Df Residuals:                    1469   BIC:                         2.054e+04
 Df Model:                           8
 Covariance Type:            nonrobust
 ==================================================================================================================
                                                      coef    std err          t      P>|t|      [0.025      0.975]
 ------------------------------------------------------------------------------------------------------------------
-Percent Living in Poverty                          0.8931      0.164      5.455      0.000       0.572       1.214
-Percent High School Education                      0.1439      0.067      2.143      0.032       0.012       0.276
-Median Household Income                            0.0008   5.15e-05     15.484      0.000       0.001       0.001
-Gini Coefficient                                  62.7744     15.102      4.157      0.000      33.175      92.374
-Percent Uninsured                                  0.0184      0.101      0.182      0.856      -0.180       0.217
-Percent Unemployed                                 2.8759      0.217     13.257      0.000       2.451       3.301
-Percent Living with Severe Housing Cost Burden     1.2710      0.150      8.461      0.000       0.977       1.565
-Syphilis Rate                                      0.3221      0.044      7.401      0.000       0.237       0.407
-avg_nh_score                                     -12.8997      0.398    -32.377      0.000     -13.681     -12.119
+Percent Living in Poverty                          2.5241      2.093      1.206      0.228      -1.581       6.630
+Percent High School Education                     -6.0130      0.931     -6.456      0.000      -7.840      -4.186
+Median Household Income                            0.0043      0.001      6.050      0.000       0.003       0.006
+Gini Coefficient                                 427.2252    220.656      1.936      0.053      -5.610     860.060
+Percent Uninsured                                  1.7192      1.669      1.030      0.303      -1.555       4.993
+Percent Unemployed                                 0.9388      3.339      0.281      0.779      -5.612       7.489
+Percent Living with Severe Housing Cost Burden    15.7221      2.300      6.836      0.000      11.211      20.234
+Syphilis Rate                                      1.8257      0.576      3.171      0.002       0.696       2.955
+avg_nh_score                                       1.2603      6.348      0.199      0.843     -11.192      13.713
 ==============================================================================
-Omnibus:                   105098.061   Durbin-Watson:                   1.909
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):          1735423.497
-Skew:                           2.741   Prob(JB):                         0.00
-Kurtosis:                      17.741   Cond. No.                     2.22e+06
+Omnibus:                     1249.711   Durbin-Watson:                   2.008
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            47792.481
+Skew:                           3.731   Prob(JB):                         0.00
+Kurtosis:                      29.840   Cond. No.                     2.01e+06
 ==============================================================================
 
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-[2] The condition number is large, 2.22e+06. This might indicate that there are
+[2] The condition number is large, 2.01e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
+```
 
-Cross-validated R^2: 0.011645046654678281
+Cross-validated R^2: 0.07993875251666359
 
 Ranked features by Lasso:
 
-Syphilis Rate                                     0.189570
-Median Household Income                           0.000289
+Syphilis Rate                                     1.150892
+Median Household Income                           0.002016
 Percent Living in Poverty                         0.000000
 Percent High School Education                     0.000000
 Gini Coefficient                                  0.000000
