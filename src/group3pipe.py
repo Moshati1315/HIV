@@ -1,5 +1,23 @@
 from imports import *
 
+
+# Import stateFIPS dataset
+stateFIPS_df = pd.read_csv('data/stateFIPS.csv', usecols = ['state', 'code', 'fips', 'region'])
+# Get state FIPS codes as strings:
+stateFIPS_df['STATEFP'] = stateFIPS_df['fips'].astype(str)
+
+# Add '0' before single-digit fips nums (to make all 2-digit codes):
+for index in stateFIPS_df.index:
+    # get FIPS code:
+    fips = stateFIPS_df['STATEFP'][index]
+    # If 1-digit, add a 0 prefix:
+    if len(fips) == 1:
+        fips = '0' + fips
+    # Reassign value:
+    stateFIPS_df['STATEFP'][index] = fips
+
+stateFIPS_df.to_csv("data/v1stateFIPS_df.csv")
+
 #HIV data
 #sdoh_2020= "https://raw.githubusercontent.com/ds5110/project-summer-2023-moriarity-tim/main/data/AIDSVu_County_SDOH_2020.csv?token=GHSAT0AAAAAACDRJ3D7NJWB4P3CY7IX62VQZGJTMIA"
 sdoh_2020_df = pd.read_csv('data/AIDSVu_County_SDOH_2020.csv') 
@@ -87,23 +105,6 @@ df00 = pd.merge(df0, scores_index, left_index=True, right_index=True)
 # Merge with dataframe containing HIV rates by county/state:
 cols = ['State', 'County']
 dfX = df00.merge(df2, on=cols)
-
-
-stateFIPS_df = pd.read_csv('data/stateFIPS.csv', usecols = ['state', 'code', 'fips', 'region'])
-# Get state FIPS codes as strings:
-stateFIPS_df['STATEFP'] = stateFIPS_df['fips'].astype(str)
-
-# Add '0' before single-digit fips nums (to make all 2-digit codes):
-for index in stateFIPS_df.index:
-    # get FIPS code:
-    fips = stateFIPS_df['STATEFP'][index]
-    # If 1-digit, add a 0 prefix:
-    if len(fips) == 1:
-        fips = '0' + fips
-    # Reassign value:
-    stateFIPS_df['STATEFP'][index] = fips
-
-stateFIPS_df.to_csv("data/v1stateFIPS_df.csv")
 
 #Final DataFrame
 merged = pd.concat([merged, dfX], axis=1)
