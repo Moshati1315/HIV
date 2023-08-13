@@ -110,10 +110,8 @@ The results are in the results.md file.
 
 sources.md in src folder
 
-##### We are building off the work of two previous groups.
-
-##### Every file will have a reference to where it originated, and if it has been modified or not. 
-
-##### This will be done by a reference to the group at the bottom of every file.
+- We are building off the work of two previous groups.
+- Every file will have a reference to where it originated, and if it has been modified or not. 
+- This will be done by a reference to the group at the bottom of every file.
 
 Group 3 TM
