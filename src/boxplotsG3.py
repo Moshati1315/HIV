@@ -17,5 +17,3 @@ for idx, col in enumerate(cols_to_plot, start=1):
     plt.tight_layout()
 plt.savefig('figs/FeatureBox.png')
 plt.show()
-
-print('\nRemoving Outliers and Replotting')
