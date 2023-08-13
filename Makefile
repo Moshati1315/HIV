@@ -1,54 +1,68 @@
 .PHONY: data
 
-# generating the data from the publicly available csv folder. Links for where files were downloaded located in data folder: sources.md
+# Generates the data from the publicly available csv folder. Links for where files were downloaded located in data folder: sources.md
+# --- Group 3 data pipeline doesn't need the shape files that Group 2 needs, so we adjusted the pipeline.
 data:
 	python -B src/group3pipe.py
 
-# generates old data:
-# need to get shape files from here first, https://www2.census.gov/geo/tiger/GENZ2018/shp/cb_2018_us_county_500k.zip
-# they are not included in our uploaded data as we did not need them for our modeling.
-
+# generates the dataframe created at the end of Group2s work: Might be useful to another group if all groups results are ever pulled together.
 old_data: mapping merge
 
-select:
-	python -B src/feature_selection.py
-
+#Performs Forward & Backward Feature Selection & Runs Model using the Full Population
 model:
 	python -B src/feature_selection.py
 	python -B src/regression.py
 
+#Performs Forward & Backward Feature Selection & Runs Model using the 55+ Population
 m55:
 	python -B src/feature_selection55.py
 	python -B src/results.py
 
-scatter:
-	python -B src/scatterG3.py
-
-box:
-	python -B src/boxplotsG3.py
-
-heatmap:
-	python -B src/heatmapG3.py
-
+#Creates Histogram of Features
 hist:
 	python -B src/histogramG3.py
 
+#Creates Scatterplots of Features vs. HIV Rates for the Full Population
+scatter:
+	python -B src/scatterG3.py
+
+#Creates Boxplots of Features for the Full Population
+box:
+	python -B src/boxplotsG3.py
+
+#Creates Heatmap of Features for the Full Population
+heatmap:
+	python -B src/heatmapG3.py
+
+#Runs all the plots for the Full Population
 plots: scatter hist box heatmap 
 
-test:
-	python -B src/results_test.py
+#Creates Scatterplots of Features vs. HIV Rates for the 55+ Population
+scatter55:
+	python -B src/55scatterG3.py
 
+#Runs all the plots for the 55+ Population
+plot55: scatter55
+ 
+#Group 1 Data for Old Merge
 mapping:
 	python -B src/mapping.py
 	python -B src/gdf2.py
 
+#Group2 Data for Old Merge
 merge:
 	python -B src/merge.py
 
-# to clean created data
+#Removes created data
 clean:
+	rm data/group3data.csv
+	rm data/v1stateFIPS_df.csv
+
+#Removes created old data
+clean_old:
 	rm data/gdf2.csv 
 	rm data/join_ages.csv 
 	rm data/v1stateFIPS_df.csv
 
-# Group 3 - T
+
+# Group 3 - TM

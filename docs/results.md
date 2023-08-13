@@ -1,8 +1,151 @@
 This project built off the work of two previous groups. The first issue we encountered was creating a pipeline of transparent code to reproduce the datasets the other groups had created. This involved tracking down where intial files were downloaded from, and in some cases created from all of which can be found in docs/sources.md
 
+
+
 Based on our hypothesis we ran a basic linear regression model on the whole dataset with the included list of features seen in the summary table below.
 
+
+
+
+
+
+### Data
+
+All data is publicly available. We have included the necessary files in the data folder of the repo to save time in recreation.
+
+The data can be obtained from the list of links found in the sources.md file in the docs folder.
+
+The necessary data can be recreated with the following command:
+
+```
+make data
+```
+### EDA
+
+```
+make plots
+```
+This scatter plot gives us a look at available features
+as well as our feature of interest average nursing home score
+compared with HIV prevalence rates:
+
+<img src="figs/FeatureScatter.png" width="750px">
+
+This histogram shows the distributions of the features:
+
+<img src="figs/fullpopulation.png" width="750px">
+
+This shows the outliers in the features:
+
+<img src="figs/FeatureBox.png" width="750px">
+
+This shows any correlation amongst the features:
+
+<img src="figs/heatmap.png" width="750px">
+
+
+
+### Model
+
+Building off the work done by the previous groups we were able to run a linear regression model with the key feature of interest being nursing home ratings.
+
+We are looking to see if the rating of an areas nursing homes has an impact on HIV infections.
+```
+make model
+```
+
 ### Model 1 - Full Population
+
+#### Feature Selection Forward & Backward w/ Sequential Feature Selector
+
+```
+First Feature Selected by Forward Selection:
+
+ ['Gini Coefficient']
+
+First 2 Features Selected by Forward Selection:
+
+ ['Percent High School Education' 'Gini Coefficient']
+
+First 3 Features Selected by Forward Selection:
+
+ ['Percent High School Education' 'Median Household Income'
+ 'Gini Coefficient']
+
+First 4 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient']
+
+First 5 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed']
+
+First 6 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 7 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden' 'avg_nh_score']
+
+First 8 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden' 'Syphilis Rate'
+ 'avg_nh_score']
+
+
+Unfortunately avg_nh_score is the 7th feature selected.
+
+
+First Feature Selected by Backward Selection:
+
+ ['Percent Living in Poverty']
+
+First 2 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Median Household Income']
+
+First 3 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Median Household Income' 'Gini Coefficient']
+
+First 4 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient']
+
+First 5 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed']
+
+First 6 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 7 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden' 'avg_nh_score']
+
+First 8 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden' 'Syphilis Rate'
+ 'avg_nh_score']
+```
 
 Linear Regression - Full Population
 
@@ -48,7 +191,7 @@ strong multicollinearity or other numerical problems.
 ```
 Cross-validated R^2: 0.07248325675585485
 ```
-The model did not do well. This is seen in our R-squared score of 0.086, cross-validated to 0.084.
+The model did not do well. This is seen in our R-squared score of 0.086, cross-validated to 0.072.
 
 ##### Lasso Rankings
 ```
@@ -71,9 +214,104 @@ This is not an overly surprising finding as this includes a larger population ma
 
 ### Model 2 - 55+ Population
 
-
-We repeated the same modeling and cross-validation with an abbreviated dataset looking at only populations about 55 years old.
+We repeated the same modeling and cross-validation with an abbreviated dataset looking at only populations above 55 years old.
 Hypothesizing that nursing home score would be more relevant to an older population.
+
+```
+make m55
+```
+#### Feature Selection Forward & Backward w/ Sequential Feature Selector
+```
+First Feature Selected by Forward Selection:
+
+ ['Percent Living with Severe Housing Cost Burden']
+
+First 2 Features Selected by Forward Selection:
+
+ ['Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 3 Features Selected by Forward Selection:
+
+ ['Percent High School Education' 'Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 4 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 5 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 6 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 7 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Living with Severe Housing Cost Burden' 'avg_nh_score']
+
+First 8 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Unemployed' 'Percent Living with Severe Housing Cost Burden'
+ 'avg_nh_score']
+
+First Feature Selected by Backward Selection:
+
+ ['Percent Living with Severe Housing Cost Burden']
+
+First 2 Features Selected by Backward Selection:
+
+ ['Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 3 Features Selected by Backward Selection:
+
+ ['Percent High School Education' 'Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 4 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 5 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 6 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 7 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Living with Severe Housing Cost Burden' 'avg_nh_score']
+
+First 8 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Unemployed' 'Percent Living with Severe Housing Cost Burden'
+ 'avg_nh_score']
+```
 
 ```
 Linear Regression - 55+ Population
@@ -113,11 +351,11 @@ Notes:
 [2] The condition number is large, 2.01e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
 ```
-##### Cross Validation - 5 Fold
+##### Cross Validation - 5 Fold - 55+ Population
 ```
 Cross-validated R^2: 0.0941696682454305
 ```
-##### Lasso Rankings
+##### Lasso Rankings - 55+ Population
 ```
 Ranked features by Lasso:
 
