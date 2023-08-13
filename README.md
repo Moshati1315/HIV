@@ -88,16 +88,6 @@ Percent Living with Severe Housing Cost Burden     3.9185      2.005      1.955 
 Syphilis Rate                                      0.1380      0.502      0.275      0.783      -0.846       1.122
 avg_nh_score                                       2.9649      5.533      0.536      0.592      -7.889      13.819
 ==============================================================================
-Omnibus:                     1073.939   Durbin-Watson:                   1.734
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):            21878.153
-Skew:                           3.181   Prob(JB):                         0.00
-Kurtosis:                      20.742   Cond. No.                     2.01e+06
-==============================================================================
-
-Notes:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-[2] The condition number is large, 2.01e+06. This might indicate that there are
-strong multicollinearity or other numerical problems.
 
 ```
 
@@ -123,18 +113,7 @@ sources.md in src folder
 ##### We are building off the work of two previous groups.
 
 ##### Every file will have a reference to where it originated, and if it has been modified or not. 
+
 ##### This will be done by a reference to the group at the bottom of every file.
-
-#### Group 1
-* Nick Barnes
-* Paige Norris
-* https://github.com/ds5110/bioscience
-
-#### Group 2 
-* Amanda Haskell
-* Mian Wang
-* Nicholas Letarte
-* https://github.com/ds5110/projects-spring-2023-ahaskell83/tree/main
-
 
 Group 3 TM

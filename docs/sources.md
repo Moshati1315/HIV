@@ -65,4 +65,18 @@ jurisdiction.csv - https://files.hiv.gov/s3fs-public/Ending-the-HIV-Epidemic-Cou
 - created by group 1 by hand from the pdf listed above by Group 1
 
 
+
+#### Group 1
+* Nick Barnes
+* Paige Norris
+* https://github.com/ds5110/bioscience
+
+#### Group 2 
+* Amanda Haskell
+* Mian Wang
+* Nicholas Letarte
+* https://github.com/ds5110/projects-spring-2023-ahaskell83/tree/main
+
+
+
 Group 3
