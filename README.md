@@ -30,6 +30,12 @@ make data
 ```
 This histogram shows the distributions of our features we are including:
 <img src="figs/fullpopulation.png" width="750px">
+
+<img src="figs/FeatureScatter.png" width="750px">
+
+<img src="figs/FeatureBox.png" width="750px">
+
+<img src="figs/heatmap.png" width="750px">
 ### Model
 
 Building off the work done by the previous groups we were able to run a linear regression model with the key feature of interest being nursing home ratings.
@@ -45,38 +51,39 @@ Linear Regression - Full Population
 
                                       OLS Regression Results
 ==================================================================================================
-Dep. Variable:     Rates of Persons Living with HIV, 2020   R-squared:                       0.006
-Model:                                                OLS   Adj. R-squared:                  0.006
-Method:                                     Least Squares   F-statistic:                     131.4
-Date:                                    Mon, 07 Aug 2023   Prob (F-statistic):          7.58e-221
-Time:                                            22:43:23   Log-Likelihood:            -1.1207e+06
-No. Observations:                                  168379   AIC:                         2.241e+06
-Df Residuals:                                      168370   BIC:                         2.241e+06
+Dep. Variable:     Rates of Persons Living with HIV, 2020   R-squared:                       0.086
+Model:                                                OLS   Adj. R-squared:                  0.081
+Method:                                     Least Squares   F-statistic:                     17.32
+Date:                                    Sun, 13 Aug 2023   Prob (F-statistic):           8.02e-25
+Time:                                            13:52:47   Log-Likelihood:                -10036.
+No. Observations:                                    1478   AIC:                         2.009e+04
+Df Residuals:                                        1469   BIC:                         2.014e+04
 Df Model:                                               8
 Covariance Type:                                nonrobust
 ==================================================================================================================
                                                      coef    std err          t      P>|t|      [0.025      0.975]
 ------------------------------------------------------------------------------------------------------------------
-Percent Living in Poverty                          2.2038      0.189     11.636      0.000       1.833       2.575
-Percent High School Education                      0.3652      0.078      4.700      0.000       0.213       0.518
-Median Household Income                            0.0010   5.95e-05     16.865      0.000       0.001       0.001
-Gini Coefficient                                 100.5951     17.472      5.757      0.000      66.350     134.841
-Percent Uninsured                                  0.1482      0.117      1.263      0.207      -0.082       0.378
-Percent Unemployed                                 1.7285      0.251      6.887      0.000       1.237       2.220
-Percent Living with Severe Housing Cost Burden     0.9847      0.174      5.666      0.000       0.644       1.325
-Syphilis Rate                                      0.2495      0.050      4.956      0.000       0.151       0.348
-avg_nh_score                                      -8.0424      0.461    -17.446      0.000      -8.946      -7.139
+Percent Living in Poverty                          6.9459      1.824      3.807      0.000       3.367      10.524
+Percent High School Education                     -4.1979      0.812     -5.171      0.000      -5.790      -2.606
+Median Household Income                            0.0030      0.001      4.828      0.000       0.002       0.004
+Gini Coefficient                                 668.5884    192.331      3.476      0.001     291.315    1045.862
+Percent Uninsured                                  2.8547      1.455      1.962      0.050       0.001       5.709
+Percent Unemployed                                -7.3420      2.911     -2.522      0.012     -13.052      -1.632
+Percent Living with Severe Housing Cost Burden     3.9185      2.005      1.955      0.051      -0.014       7.851
+Syphilis Rate                                      0.1380      0.502      0.275      0.783      -0.846       1.122
+avg_nh_score                                       2.9649      5.533      0.536      0.592      -7.889      13.819
 ==============================================================================
-Omnibus:                   117034.545   Durbin-Watson:                   0.158
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):          2470338.299
-Skew:                           3.102   Prob(JB):                         0.00
-Kurtosis:                      20.710   Cond. No.                     2.22e+06
+Omnibus:                     1073.939   Durbin-Watson:                   1.734
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            21878.153
+Skew:                           3.181   Prob(JB):                         0.00
+Kurtosis:                      20.742   Cond. No.                     2.01e+06
 ==============================================================================
 
 Notes:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-[2] The condition number is large, 2.22e+06. This might indicate that there are
+[2] The condition number is large, 2.01e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
+
 
 The indepth results can be found in docs folder results.md, including a recreation of this summary as well as cross validated rsquared scores, lasso feature reduction ranks, and analysis. 
 
