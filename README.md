@@ -99,12 +99,12 @@ Notes:
 [2] The condition number is large, 2.01e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
 
+```
 
 The indepth results can be found in docs folder results.md
 
 including a recreation of this summary as well as cross validated rsquared scores, lasso feature reduction ranks, and analysis. 
 
-```
 
 #### Second model - Creates a model with only 55+ age group.
 
