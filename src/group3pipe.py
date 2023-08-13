@@ -88,6 +88,23 @@ df00 = pd.merge(df0, scores_index, left_index=True, right_index=True)
 cols = ['State', 'County']
 dfX = df00.merge(df2, on=cols)
 
+
+stateFIPS_df = pd.read_csv('data/stateFIPS.csv', usecols = ['state', 'code', 'fips', 'region'])
+# Get state FIPS codes as strings:
+stateFIPS_df['STATEFP'] = stateFIPS_df['fips'].astype(str)
+
+# Add '0' before single-digit fips nums (to make all 2-digit codes):
+for index in stateFIPS_df.index:
+    # get FIPS code:
+    fips = stateFIPS_df['STATEFP'][index]
+    # If 1-digit, add a 0 prefix:
+    if len(fips) == 1:
+        fips = '0' + fips
+    # Reassign value:
+    stateFIPS_df['STATEFP'][index] = fips
+
+stateFIPS_df.to_csv("data/v1stateFIPS_df.csv")
+
 #Final DataFrame
 merged = pd.concat([merged, dfX], axis=1)
 merged = merged.dropna()
@@ -100,7 +117,7 @@ merged['nh_count'] = merged['nh_count'].astype(int)
 # new code 8/11
 #jur.to_csv('data/jur.csv')
 # Saving file in data folder
-#stateFIPS_df.to_csv("data/v1stateFIPS_df.csv")
+
 
 # CSV of FINAL Dataframe
 merged.to_csv('data/group3data.csv')
