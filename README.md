@@ -54,7 +54,6 @@ We are looking to see if the rating of an areas nursing homes has an impact on H
 make model
 ```
 Abbreviated results from the above command.
-Find full results in the results.md file in the docs folder.
 ```
 
 Linear Regression - Full Population
