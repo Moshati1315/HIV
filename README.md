@@ -1,11 +1,10 @@
 ## Equitable Health Care - HIV Prevalence & Nursing Home Ratings
 
-
-### Stakeholder
+#### Stakeholder
 
 Prof. Brianne Olivieri-Mui, Dept of Health Sciences
 
-### Project partners - Group 3
+#### Project partners - Group 3
 
 * Timothy Moriarity - moriarity.t@northeastern.edu
 * Mohammed Shati - shati.m@northeastern.edu
@@ -24,7 +23,6 @@ All data is publicly available. We have included the necessary files in the data
 The data can be obtained from the list of links found in the sources.md file in the docs folder.
 
 The necessary data can be recreated with the following command:
-
 ```
 make data
 ```
@@ -43,23 +41,20 @@ This histogram shows the distributions of the features:
 
 <img src="figs/fullpopulation.png" width="750px">
 
-This shows the outliers in the features:
-
-<img src="figs/FeatureBox.png" width="750px">
-
-This shows any correlation amongst the features:
-
-<img src="figs/heatmap.png" width="750px">
+The feature of interest average nursing home score looks relatively normally distributed.
+A good sign.
 
 ### Model
 
-Building off the work done by the previous groups we were able to run a linear regression model with the key feature of interest being nursing home ratings.
+Building off the work done by the previous groups we were able to run a linear regression model using the key feature of interest; nursing home ratings.
 
-We are looking to see if the rating of an areas nursing homes has an impact on HIV infections.
+We are looking to see if the rating of an areas nursing homes has an impact on HIV prevalence rates.
+
 ```
 make model
 ```
-Creates figures & results whcih are partially shown below and in full detail in the results.md file in the docs folder.
+Abbreviated results from the above command.
+Find full results in the results.md file in the docs folder.
 ```
 
 Linear Regression - Full Population
