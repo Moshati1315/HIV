@@ -36,6 +36,7 @@ This histogram shows the distributions of our features we are including:
 <img src="figs/FeatureBox.png" width="750px">
 
 <img src="figs/heatmap.png" width="750px">
+
 ### Model
 
 Building off the work done by the previous groups we were able to run a linear regression model with the key feature of interest being nursing home ratings.
