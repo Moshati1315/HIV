@@ -4,6 +4,7 @@ Based on our hypothesis we ran a basic linear regression model on the whole data
 
 The model did not do well. This is seen in our R-squared score of 0.086
 
+### Model 1 - Full Population
 
 Linear Regression - Full Population
 
@@ -44,8 +45,13 @@ Notes:
 [2] The condition number is large, 2.01e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
 ```
- Cross-validated R^2: 0.08393503551491376
 
+##### Cross Validation
+```
+Cross-validated R^2: 0.08393503551491376
+```
+##### Lasso Rankings
+```
 Ranked features by Lasso:
 
 Percent Living in Poverty                         3.995628
@@ -58,9 +64,12 @@ Percent Unemployed                                0.000000
 Percent Living with Severe Housing Cost Burden    0.000000
 avg_nh_score                                      0.000000
 dtype: float64
+```
 
- Unfortunately Average Nursing Home Score is not statistically significant
- along with being ranked last using Lasso feature selection.
+Unfortunately Average Nursing Home Score is not statistically significant along with being ranked last using Lasso feature selection.
+
+### Model 2 - 55+ Population
+
 
 We repeated the same modeling and cross-validation with an abbreviated dataset looking at only populations about 55 years old.
 ```
@@ -101,10 +110,12 @@ Notes:
 [2] The condition number is large, 2.01e+06. This might indicate that there are
 strong multicollinearity or other numerical problems.
 ```
-
+##### Cross Validation
 ```
 Cross-validated R^2: 0.07993875251666359
-
+```
+##### Lasso Rankings
+```
 Ranked features by Lasso:
 
 Syphilis Rate                                     1.150892
