@@ -446,6 +446,341 @@ Percent Living with Severe Housing Cost Burden    0.000000
 avg_nh_score                                      0.000000
 dtype: float64
 ```
+### Model 3 - Full Population  - Drop Major Cities
+We repeated the same modeling and cross-validation with an abbreviated dataset looking at only populations above 55 years old.
+Hypothesizing that nursing home score would be more relevant to an older population.
+
+```
+make mNC
+```
+#### Feature Selection Forward & Backward w/ Sequential Feature Selector (SFS)
+
+Looking at the order features are chosen by the SFS
+
+This is the result from the first file of the make mNC command:
+
+```
+First Feature Selected by Forward Selection:
+
+ ['Gini Coefficient']
+
+First 2 Features Selected by Forward Selection:
+
+ ['Percent High School Education' 'Gini Coefficient']
+
+First 3 Features Selected by Forward Selection:
+
+ ['Percent High School Education' 'Median Household Income'
+ 'Gini Coefficient']
+
+First 4 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient']
+
+First 5 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed']
+
+First 6 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 7 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden' 'avg_nh_score']
+
+First 8 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden' 'Syphilis Rate'
+ 'avg_nh_score']
+
+
+Unfortunately avg_nh_score is the 7th feature selected.
+
+
+First Feature Selected by Backward Selection:
+
+ ['Percent Living in Poverty']
+
+First 2 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Median Household Income']
+
+First 3 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Median Household Income' 'Gini Coefficient']
+
+First 4 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient']
+
+First 5 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed']
+
+First 6 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 7 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden' 'avg_nh_score']
+
+First 8 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Unemployed'
+ 'Percent Living with Severe Housing Cost Burden' 'Syphilis Rate'
+ 'avg_nh_score']
+
+
+Unfortunately avg_nh_score is the 7th feature selected. Again.
+```
+This is the result from the second file of the make m55 command:
+
+Linear Regression - Full Population - after major cities drop
+```
+
+                                      OLS Regression Results
+==================================================================================================
+Dep. Variable:     Rates of Persons Living with HIV, 2020   R-squared:                       0.085
+Model:                                                OLS   Adj. R-squared:                  0.080
+Method:                                     Least Squares   F-statistic:                     16.94
+Date:                                    Mon, 14 Aug 2023   Prob (F-statistic):           2.99e-24
+Time:                                            14:50:18   Log-Likelihood:                -9968.3
+No. Observations:                                    1468   AIC:                         1.995e+04
+Df Residuals:                                        1459   BIC:                         2.000e+04
+Df Model:                                               8
+Covariance Type:                                nonrobust
+==================================================================================================================
+                                                     coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------------------
+Percent Living in Poverty                          6.5599      1.836      3.572      0.000       2.958      10.162
+Percent High School Education                     -4.2831      0.815     -5.254      0.000      -5.882      -2.684
+Median Household Income                            0.0029      0.001      4.760      0.000       0.002       0.004
+Gini Coefficient                                 706.8408    193.517      3.653      0.000     327.239    1086.443
+Percent Uninsured                                  2.8375      1.461      1.943      0.052      -0.028       5.703
+Percent Unemployed                                -7.2852      2.923     -2.492      0.013     -13.019      -1.551
+Percent Living with Severe Housing Cost Burden     3.5985      2.013      1.788      0.074      -0.350       7.547
+Syphilis Rate                                      0.2100      0.504      0.417      0.677      -0.778       1.198
+avg_nh_score                                       3.1790      5.542      0.574      0.566      -7.693      14.051
+==============================================================================
+Omnibus:                     1068.926   Durbin-Watson:                   1.740
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            21900.847
+Skew:                           3.187   Prob(JB):                         0.00
+Kurtosis:                      20.816   Cond. No.                     2.02e+06
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.02e+06. This might indicate that there are
+strong multicollinearity or other numerical problems.
+```
+##### Cross Validation - 5 Fold - Full Population - Drop Major Cities
+
+Cross-validated R^2: 0.06267729014563136
+
+##### Lasso Rankings - Full Population - Drop Major Cities
+
+Ranked features by Lasso:
+
+Percent Living in Poverty                         4.253210
+Syphilis Rate                                     0.497284
+Percent High School Education                     0.197858
+Median Household Income                           0.000776
+Gini Coefficient                                  0.000000
+Percent Uninsured                                 0.000000
+Percent Unemployed                                0.000000
+Percent Living with Severe Housing Cost Burden    0.000000
+avg_nh_score                                      0.000000
+dtype: float64
+
+### Model 4 - 55+ Population - Drop Major Cities
+We repeated the same modeling and cross-validation with an abbreviated dataset looking at only populations above 55 years old.
+Hypothesizing that nursing home score would be more relevant to an older population.
+
+creates the same model as before using only rates of those older than 55:
+
+```
+make mNC55
+```
+#### Feature Selection Forward & Backward w/ Sequential Feature Selector (SFS)
+
+Looking at the order features are chosen by the SFS
+
+This is the result from the first file of the make m55 command:
+
+```
+First Feature Selected by Forward Selection:
+
+ ['Percent Living with Severe Housing Cost Burden']
+
+First 2 Features Selected by Forward Selection:
+
+ ['Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 3 Features Selected by Forward Selection:
+
+ ['Percent High School Education' 'Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 4 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 5 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 6 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 7 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Living with Severe Housing Cost Burden' 'avg_nh_score']
+
+First 8 Features Selected by Forward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Unemployed' 'Percent Living with Severe Housing Cost Burden'
+ 'avg_nh_score']
+
+
+Unfortunately avg_nh_score is the 7th feature selected.
+
+
+First Feature Selected by Backward Selection:
+
+ ['Percent Living with Severe Housing Cost Burden']
+
+First 2 Features Selected by Backward Selection:
+
+ ['Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 3 Features Selected by Backward Selection:
+
+ ['Percent High School Education' 'Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 4 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 5 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 6 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Living with Severe Housing Cost Burden']
+
+First 7 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Living with Severe Housing Cost Burden' 'avg_nh_score']
+
+First 8 Features Selected by Backward Selection:
+
+ ['Percent Living in Poverty' 'Percent High School Education'
+ 'Median Household Income' 'Gini Coefficient' 'Percent Uninsured'
+ 'Percent Unemployed' 'Percent Living with Severe Housing Cost Burden'
+ 'avg_nh_score']
+
+
+Unfortunately avg_nh_score is the 7th feature selected. Again.
+```
+This is the result from the second file of the make mNC55 command:
+
+Linear Regression - 55+ Population - after major cities drop
+```
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                 hiv55+   R-squared:                       0.138
+Model:                            OLS   Adj. R-squared:                  0.133
+Method:                 Least Squares   F-statistic:                     29.19
+Date:                Mon, 14 Aug 2023   Prob (F-statistic):           1.64e-42
+Time:                        14:55:30   Log-Likelihood:                -10168.
+No. Observations:                1468   AIC:                         2.035e+04
+Df Residuals:                    1459   BIC:                         2.040e+04
+Df Model:                           8
+Covariance Type:            nonrobust
+==================================================================================================================
+                                                     coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------------------
+Percent Living in Poverty                          2.0260      2.104      0.963      0.336      -2.101       6.153
+Percent High School Education                     -6.1403      0.934     -6.574      0.000      -7.972      -4.308
+Median Household Income                            0.0042      0.001      6.013      0.000       0.003       0.006
+Gini Coefficient                                 479.2434    221.727      2.161      0.031      44.305     914.182
+Percent Uninsured                                  1.5968      1.674      0.954      0.340      -1.686       4.880
+Percent Unemployed                                 1.1958      3.349      0.357      0.721      -5.374       7.765
+Percent Living with Severe Housing Cost Burden    15.2133      2.306      6.596      0.000      10.689      19.738
+Syphilis Rate                                      1.8984      0.577      3.290      0.001       0.766       3.030
+avg_nh_score                                       1.4398      6.350      0.227      0.821     -11.017      13.896
+==============================================================================
+Omnibus:                     1246.847   Durbin-Watson:                   2.013
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            48433.240
+Skew:                           3.750   Prob(JB):                         0.00
+Kurtosis:                      30.121   Cond. No.                     2.02e+06
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.02e+06. This might indicate that there are
+strong multicollinearity or other numerical problems.
+```
+
+##### Cross Validation - 5 Fold - 55+ Population  - Drop Major Cities
+
+ Cross-validated R^2: 0.09603797781271266
+
+##### Lasso Rankings - 55+ Population  - Drop Major Cities
+
+Ranked features by Lasso:
+
+Syphilis Rate                                     1.059828
+Median Household Income                           0.002095
+Percent Living in Poverty                         0.000000
+Percent High School Education                     0.000000
+Gini Coefficient                                  0.000000
+Percent Uninsured                                 0.000000
+Percent Unemployed                                0.000000
+Percent Living with Severe Housing Cost Burden    0.000000
+avg_nh_score                                      0.000000
+dtype: float64
 
 This model found Syphilis rate to be a stronger feature the Percent Living in Poverty, which was the top feature after lasso in the previous model using the entire population. Unfortunately both models found the avg_nh_score to be the least important of the features by Lasso. 
 
