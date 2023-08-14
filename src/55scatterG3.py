@@ -14,10 +14,14 @@ data = merged.melt(id_vars=['hiv55+'], value_vars=value_vars_list)
 
 g = sns.FacetGrid(data, col="variable", col_wrap=3, sharex=False, sharey=False, height=4)
 g = (g.map(plt.scatter, "value", "hiv55+", edgecolor="w")
-      .set_titles("{col_name} vs. HIV Rates")
-      .set_axis_labels("Value", "Rates of Persons Living with HIV 55+, 2020"))
+      .set_titles("{col_name} vs. HIV Rates"))
 
-plt.subplots_adjust(top=0.9)
+for ax, title in zip(g.axes.flat, value_vars_list):
+    ax.set_xlabel(title)
+
+g.tight_layout()
+plt.subplots_adjust(top=0.85, hspace=0.4)  
+
 g.fig.suptitle('Scatter Plots of Predictors vs. Rates of Persons Living with HIV over 55 years old, 2020')
 
 plt.savefig('figs/FeatureScatter55.png')

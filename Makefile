@@ -38,6 +38,13 @@ heatmap:
 #Runs all the plots for the Full Population
 plots: scatter hist box heatmap 
 
+#EDA with nh_count outliers
+outliers:
+	python -B src/nh_count_outlier_scatter.py
+	python -B src/nh_count_outlierCUT1scatter.py
+	python -B src/nh_count_outlierCUT2scatter.py
+	python -B src/nh_count_outlierCUT3scatter.py
+
 #Creates Scatterplots of Features vs. HIV Rates for the 55+ Population
 scatter55:
 	python -B src/55scatterG3.py

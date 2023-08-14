@@ -1,0 +1,14 @@
+from imports import sns, plt, pd
+
+merged = pd.read_csv('data/group3data.csv')
+merged = merged[~merged['nh_count'].isin([101, 81, 205, 375, 65, 70, 73])]
+
+plt.figure(figsize=(10, 8))
+sns.scatterplot(x='nh_count', y='Rates of Persons Living with HIV, 2020', data=merged)
+plt.title('Nursing Home Count after removal of counties with\nSan Franscisco, Cincinnati, Boston, St.Louis, Detroit\nvs.\nRates of Persons Living with HIV, 2020')
+plt.xlabel('nh_count')
+plt.ylabel('Rates of Persons Living with HIV, 2020')
+
+plt.savefig('figs/nh_outlier_CUT3scatter.png')
+plt.savefig('docs/figs/nh_outlier_CUT3scatter.png')
+plt.show()

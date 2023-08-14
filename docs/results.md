@@ -50,22 +50,43 @@ This scatter plot gives us a look at available features
 as well as our feature of interest average nursing home score
 compared with HIV prevalence rates:
 
-<img src="figs/FeatureScatter.png" width="750px">
+<img src="docs/figs/FeatureScatter.png" width="750px">
+
+Based on the feature scatter plot, we examined the outliers in the nh_count feature.
+We were able to identify them as counties with major cities as expected.
+
+Cut1: LA & Chicago
+
+Cut2: San Diego & Houston
+
+Cut3: San Franscisco, Cincinnati, Boston, St. Louis, Detroit
+
+The command below goes through a progression of outlier removal.
+Both identifying the cities and replotting.
+By our final cut the nursing home counts data is far less skewed.
+
+```
+make outliers
+```
+With outliers:
+<img src="docs/figs/nh_outlier_scatter.png" width="750px">
+Without outliers:
+<img src="docs/figs/nh_outlier_CUT3scatter.png" width="750px">
 
 This histogram shows the distributions of the features:
 
-<img src="figs/fullpopulation.png" width="750px">
+<img src="docs/figs/fullpopulation.png" width="750px">
 
 The feature of interest average nursing home score looks relatively normally distributed.
 A good sign.
 
 This shows the outliers in the features:
 
-<img src="figs/FeatureBox.png" width="750px">
+<img src="docs/figs/FeatureBox.png" width="750px">
 
 This shows any correlation amongst the features:
 
-<img src="figs/heatmap.png" width="750px">
+<img src="docs/figs/heatmap.png" width="750px">
 
 
 
@@ -74,13 +95,18 @@ This shows any correlation amongst the features:
 Building off the work done by the previous groups we were able to run a linear regression model with the key feature of interest being nursing home ratings.
 
 We are looking to see if the rating of an areas nursing homes has an impact on HIV infections.
+This runs our most basic model, using the full dataset with average nursing home score amongst the features.
 ```
 make model
 ```
 
 ### Model 1 - Full Population
 
-#### Feature Selection Forward & Backward w/ Sequential Feature Selector
+#### Feature Selection Forward & Backward w/ Sequential Feature Selector (SFS)
+
+Looking at the order features are chosen by the SFS
+
+This is the result from the first file of the make model command:
 
 ```
 First Feature Selected by Forward Selection:
@@ -170,6 +196,7 @@ First 8 Features Selected by Backward Selection:
  'Percent Living with Severe Housing Cost Burden' 'Syphilis Rate'
  'avg_nh_score']
 ```
+This is the result from the second file of the make model command:
 
 Linear Regression - Full Population
 
@@ -237,14 +264,26 @@ Average Nursing Home Score is not statistically significant along with being ran
 This is not an overly surprising finding as this includes a larger population many of which are likely not impacted by nursing home care.
 
 ### Model 2 - 55+ Population
-
 We repeated the same modeling and cross-validation with an abbreviated dataset looking at only populations above 55 years old.
 Hypothesizing that nursing home score would be more relevant to an older population.
+
+Below creates scatterplots of the features compared with HIV rates in those older than 55
+```
+make scatter55
+```
+<img src="docs/figs/FeatureScatter55.png" width="750px">
+
+creates the same model as before using only rates of those older than 55:
 
 ```
 make m55
 ```
-#### Feature Selection Forward & Backward w/ Sequential Feature Selector
+#### Feature Selection Forward & Backward w/ Sequential Feature Selector (SFS)
+
+Looking at the order features are chosen by the SFS
+
+This is the result from the first file of the make m55 command:
+
 ```
 First Feature Selected by Forward Selection:
 
@@ -336,7 +375,7 @@ First 8 Features Selected by Backward Selection:
  'Percent Unemployed' 'Percent Living with Severe Housing Cost Burden'
  'avg_nh_score']
 ```
-
+This is the result from the second file of the make m55 command:
 
 Linear Regression - 55+ Population
 ```
@@ -396,7 +435,7 @@ avg_nh_score                                      0.000000
 dtype: float64
 ```
 
-This model found Syphilis rate to be a stronger feature the Percent Living in Poverty, which was the top feature after lasso in the previous model using the entire population. Unfortunately both models found the avg_nh_score to be the least important of the features. 
+This model found Syphilis rate to be a stronger feature the Percent Living in Poverty, which was the top feature after lasso in the previous model using the entire population. Unfortunately both models found the avg_nh_score to be the least important of the features by Lasso. 
 
 This can likely be contributed to a couple of different factors. Firstly the nursing home score itself has its own issue as a metric of measure for one of our features. As it is a generated metric there may be variables that go into its creation that would be better suited for this modeling. 
 
