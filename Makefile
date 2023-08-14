@@ -19,6 +19,17 @@ m55:
 	python -B src/feature_selection55.py
 	python -B src/results.py
 
+#Performs Forward & Backward Feature Selection & Runs Model using the Full Population and counties with major cities removed
+mNC:
+	python -B src/model_dropMC_feat_select.py
+	python -B src/model_dropMajorCities.py
+
+#Performs Forward & Backward Feature Selection & Runs Model using the Full Population and counties with major cities removed & 55+ population
+mNC55:
+	python -B src/model_dropMC_feat_select.py
+	python -B src/model_dropMajorCities55.py
+	
+
 #Creates Histogram of Features
 hist:
 	python -B src/histogramG3.py
@@ -27,9 +38,16 @@ hist:
 scatter:
 	python -B src/scatterG3.py
 
+#Creates all the box plots
+boxes: box box_OutDROP
+
 #Creates Boxplots of Features for the Full Population
 box:
 	python -B src/boxplotsG3.py
+
+#Creates Boxplots of Features for the Full Population after dropping major city outliers
+box_OutDROP:
+	python -B src/boxplotsG3outlierdropNHcount.py
 
 #Creates Heatmap of Features for the Full Population
 heatmap:

@@ -82,13 +82,22 @@ A good sign.
 
 This shows the outliers in the features:
 
+Before cities drop:
+
 <img src="figs/FeatureBox.png" width="750px">
+
+After cities drop:
+
+<img src="figs/FeatureBoxOutlierDrop.png" width="750px">
+
+The distribution of nursing home counts looks better.
 
 This shows any correlation amongst the features:
 
 <img src="figs/heatmap.png" width="750px">
 
-
+Appears to be some interaction between the income related variables.
+May warrant further examination.
 
 ### Model
 
