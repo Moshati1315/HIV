@@ -79,10 +79,10 @@ including a recreation of
 - lasso feature reduction ranks 
 
 for 4 Models:
-- HIV rates for entire Population
-- HIV rates for Population older than 55
-- HIV rates for entire Population after removing Major cities
-- HIV rates for Population older than 55 after removing Major cities
+- HIV rates for entire population
+- HIV rates for population older than 55
+- HIV rates for entire population after removing major cities
+- HIV rates for population older than 55 after removing major cities
 
 #### Findings
 
