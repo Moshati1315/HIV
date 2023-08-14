@@ -597,7 +597,7 @@ Cross-validated R^2: 0.06267729014563136
 ##### Lasso Rankings - Full Population - Drop Major Cities
 
 Ranked features by Lasso:
-
+```
 Percent Living in Poverty                         4.253210
 Syphilis Rate                                     0.497284
 Percent High School Education                     0.197858
@@ -608,7 +608,7 @@ Percent Unemployed                                0.000000
 Percent Living with Severe Housing Cost Burden    0.000000
 avg_nh_score                                      0.000000
 dtype: float64
-
+```
 ### Model 4 - 55+ Population - Drop Major Cities
 We repeated the same modeling and cross-validation with an abbreviated dataset looking at only populations above 55 years old.
 Hypothesizing that nursing home score would be more relevant to an older population.
@@ -770,7 +770,7 @@ strong multicollinearity or other numerical problems.
 ##### Lasso Rankings - 55+ Population  - Drop Major Cities
 
 Ranked features by Lasso:
-
+```
 Syphilis Rate                                     1.059828
 Median Household Income                           0.002095
 Percent Living in Poverty                         0.000000
@@ -781,7 +781,7 @@ Percent Unemployed                                0.000000
 Percent Living with Severe Housing Cost Burden    0.000000
 avg_nh_score                                      0.000000
 dtype: float64
-
+```
 This model found Syphilis rate to be a stronger feature the Percent Living in Poverty, which was the top feature after lasso in the previous model using the entire population. Unfortunately both models found the avg_nh_score to be the least important of the features by Lasso. 
 
 This can likely be contributed to a couple of different factors. Firstly the nursing home score itself has its own issue as a metric of measure for one of our features. As it is a generated metric there may be variables that go into its creation that would be better suited for this modeling. 
