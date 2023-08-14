@@ -337,8 +337,9 @@ First 8 Features Selected by Backward Selection:
  'avg_nh_score']
 ```
 
-```
+
 Linear Regression - 55+ Population
+```
 
                             OLS Regression Results
 ==============================================================================
