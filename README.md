@@ -86,7 +86,7 @@ for 4 Models:
 
 #### Findings
 
-- The relevant features change when going from a Full Population to a 55+ Population model
+- The relevant features change when going from a full population to a 55+ population model
 - The model does better looking at 55+ population
 - The average nursing home score is never found to be statistically significant
 
