@@ -28,6 +28,7 @@ g.set_xticklabels(rotation=30)
 
 g.tight_layout()
 plt.savefig('figs/fullpopulation.png')
+plt.savefig('docs/figs/fullpopulation.png')
 plt.show()
 
 

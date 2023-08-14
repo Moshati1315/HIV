@@ -16,4 +16,5 @@ for idx, col in enumerate(cols_to_plot, start=1):
     plt.title(f"Boxplot of {col}")
     plt.tight_layout()
 plt.savefig('figs/FeatureBox.png')
+plt.savefig('docs/figs/FeatureBox.png')
 plt.show()

@@ -5,7 +5,8 @@
 data:
 	python -B src/group3pipe.py
 
-# generates the dataframe created at the end of Group2s work: Might be useful to another group if all groups results are ever pulled together.
+# Generates the dataframe created at the end of Group2s work:
+# Might be useful to another group if all groups results are ever pulled together:
 old_data: mapping merge
 
 #Performs Forward & Backward Feature Selection & Runs Model using the Full Population
@@ -40,9 +41,6 @@ plots: scatter hist box heatmap
 #Creates Scatterplots of Features vs. HIV Rates for the 55+ Population
 scatter55:
 	python -B src/55scatterG3.py
-
-#Runs all the plots for the 55+ Population
-plot55: scatter55
  
 #Group 1 Data for Old Merge
 mapping:

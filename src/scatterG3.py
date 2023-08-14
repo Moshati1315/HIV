@@ -21,5 +21,6 @@ plt.subplots_adjust(top=0.85, hspace=0.4)
 
 g.fig.suptitle('Scatter Plots of Features vs. Rates of Persons Living with HIV, 2020')
 plt.savefig('figs/FeatureScatter.png')
+plt.savefig('docs/figs/FeatureScatter.png')
 plt.show()
 # Group 3 - MS & TM

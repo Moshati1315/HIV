@@ -18,9 +18,10 @@ g = (g.map(plt.scatter, "value", "hiv55+", edgecolor="w")
       .set_axis_labels("Value", "Rates of Persons Living with HIV 55+, 2020"))
 
 plt.subplots_adjust(top=0.9)
-g.fig.suptitle('Scatter Plots of Predictors vs. Rates of Persons Living with HIV, 2020')
+g.fig.suptitle('Scatter Plots of Predictors vs. Rates of Persons Living with HIV over 55 years old, 2020')
 
-#plt.savefig('figs/FeatureScatter55.png')
+plt.savefig('figs/FeatureScatter55.png')
+plt.savefig('docs/figs/FeatureScatter55.png')
 plt.show()
 
 # Group 3 - MS & TM

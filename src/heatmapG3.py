@@ -30,6 +30,7 @@ sns.heatmap(corr_matrix, annot=True, cmap='mako', linewidths=0.5)
 plt.xticks(rotation=35, ha='right')
 plt.title('Feature Correlation Heatmap')
 plt.savefig('figs/heatmap.png')
+plt.savefig('docs/figs/heatmap.png')
 plt.show()
 
 # Group 3 - MS & TM
