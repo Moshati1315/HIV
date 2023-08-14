@@ -50,7 +50,7 @@ This scatter plot gives us a look at available features
 as well as our feature of interest average nursing home score
 compared with HIV prevalence rates:
 
-<img src="docs/figs/FeatureScatter.png" width="750px">
+<img src="figs/FeatureScatter.png" width="750px">
 
 Based on the feature scatter plot, we examined the outliers in the nh_count feature.
 We were able to identify them as counties with major cities as expected.
@@ -69,24 +69,24 @@ By our final cut the nursing home counts data is far less skewed.
 make outliers
 ```
 With outliers:
-<img src="docs/figs/nh_outlier_scatter.png" width="750px">
+<img src="figs/nh_outlier_scatter.png" width="750px">
 Without outliers:
-<img src="docs/figs/nh_outlier_CUT3scatter.png" width="750px">
+<img src="figs/nh_outlier_CUT3scatter.png" width="750px">
 
 This histogram shows the distributions of the features:
 
-<img src="docs/figs/fullpopulation.png" width="750px">
+<img src="figs/fullpopulation.png" width="750px">
 
 The feature of interest average nursing home score looks relatively normally distributed.
 A good sign.
 
 This shows the outliers in the features:
 
-<img src="docs/figs/FeatureBox.png" width="750px">
+<img src="figs/FeatureBox.png" width="750px">
 
 This shows any correlation amongst the features:
 
-<img src="docs/figs/heatmap.png" width="750px">
+<img src="figs/heatmap.png" width="750px">
 
 
 
@@ -271,7 +271,7 @@ Below creates scatterplots of the features compared with HIV rates in those olde
 ```
 make scatter55
 ```
-<img src="docs/figs/FeatureScatter55.png" width="750px">
+<img src="figs/FeatureScatter55.png" width="750px">
 
 creates the same model as before using only rates of those older than 55:
 
