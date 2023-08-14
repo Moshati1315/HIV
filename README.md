@@ -66,29 +66,34 @@ Percent Unemployed                                -7.3420      2.911     -2.522 
 Percent Living with Severe Housing Cost Burden     3.9185      2.005      1.955      0.051      -0.014       7.851
 Syphilis Rate                                      0.1380      0.502      0.275      0.783      -0.846       1.122
 avg_nh_score                                       2.9649      5.533      0.536      0.592      -7.889      13.819
-==============================================================================
+==================================================================================================================
 
 ```
 
 The indepth results can be found in docs folder results.md
 
-including a recreation of this summary as well as cross validated rsquared scores, lasso feature reduction ranks, and analysis. 
+including a recreation of
+- sequential feature selection
+- summary tables
+- cross validated rsquared scores, 
+- lasso feature reduction ranks 
 
-
-#### Second model - Creates a model with only 55+ age group.
-
-Command:
-
-```
-make m55
-```
-The results are in the results.md file. 
+for 4 Models:
+- HIV rates for entire Population
+- HIV rates for Population older than 55
+- HIV rates for entire Population after removing Major cities
+- HIV rates for Population older than 55 after removing Major cities
 
 #### Findings
 
+- The relevant features change when going from a Full Population to a 55+ Population model
+- The model does better looking at 55+ population
+- The average nursing home score is never found to be statistically significant
+
 #### Future Work
 
-
+- use more features from nursing home dataset
+- look at other demographic variables: race
 
 ### Referencing
 
