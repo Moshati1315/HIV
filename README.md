@@ -11,7 +11,9 @@ Prof. Brianne Olivieri-Mui, Dept of Health Sciences
 
 ### Story 
 
-HIV and aids is a significant public health issue that has resulted in the deaths of millions of people. Medicaid is the only public insurance that pays for nursing home care. A significant portion of people living with HIV (PLWH) have Medicaid, many are also dually eligible for Medicare. Having Medicaid or Medicare means access to Part D prescription drug coverage which is mandated to cover HIV medications (they are one of the 6 protected classes of drugs). Nursing homes however do not keep these drugs on formulary because they are relatively rare and is potentially contributing to issues with antiretroviral therapy (ART) adherence in this setting. There exists publicly available data provided by Medicare.gov that ranks nursing homes on a star rating from 1 to 5, with 1 indicating the worst care and 5 indicating the best care. For this reason we are looking for a relationship between the ratings of an areas nursing homes and the prevelance of HIV in that area.
+HIV and aids is a significant public health issue that has resulted in the deaths of millions of people. Medicaid is the only public insurance that pays for nursing home care. A significant portion of people living with HIV (PLWH) have Medicaid, many are also dually eligible for Medicare. Having Medicaid or Medicare means access to Part D prescription drug coverage which is mandated to cover HIV medications (they are one of the 6 protected classes of drugs). Nursing homes however do not keep these drugs on formulary because they are relatively rare and is potentially contributing to issues with antiretroviral therapy (ART) adherence in this setting. There exists publicly available data provided by Medicare.gov that ranks nursing homes on a star rating from 1 to 5, with 1 indicating the worst care and 5 indicating the best care. This was used in Group 2s work on visualizing nursing home score and HIV prevalence.
+
+For this reason we are looking for a relationship between the ratings of an areas nursing homes and the prevelance of HIV in that area.
 
 Based on this hypothesis we are looking at what if any relationship there is between a nursing home ratings and the prevelance of HIV in an area. We have a hypothesis that the higher the ratings of nursing homes in an area the lower the prevalence of HIV. If this holds true, this would support the allocation of public funds to combat HIV by raising the quality of nursing home care.
 
@@ -43,6 +45,19 @@ This histogram shows the distributions of the features:
 
 The feature of interest average nursing home score looks relatively normally distributed.
 A good sign.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Model
 
@@ -98,6 +113,11 @@ Command:
 make m55
 ```
 The results are in the results.md file. 
+
+#### Findings
+
+#### Future Work
+
 
 
 ### Referencing
