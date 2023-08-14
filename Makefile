@@ -26,10 +26,9 @@ mNC:
 
 #Performs Forward & Backward Feature Selection & Runs Model using the Full Population and counties with major cities removed & 55+ population
 mNC55:
-	python -B src/model_dropMC_feat_select.py
+	python -B src/model_dropMC_feat_select55.py
 	python -B src/model_dropMajorCities55.py
 	
-
 #Creates Histogram of Features
 hist:
 	python -B src/histogramG3.py

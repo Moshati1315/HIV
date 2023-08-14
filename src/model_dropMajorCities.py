@@ -19,7 +19,7 @@ pipeline = Pipeline(steps=[('m',lg)])
 n_scores = cross_val_score(pipeline, x, y, cv=KFold(n_splits=5, shuffle=True, random_state=1))
 
 
-print("\n\nLinear Regression - Full Population\n")
+print("\n\nLinear Regression - Full Population - after major cities drop\n")
 
 results = sm.OLS(y,x, hasconst=True).fit()
 print(results.summary())  

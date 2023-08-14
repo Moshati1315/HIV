@@ -69,8 +69,11 @@ By our final cut the nursing home counts data is far less skewed.
 make outliers
 ```
 With outliers:
+
 <img src="figs/nh_outlier_scatter.png" width="750px">
+
 Without outliers:
+
 <img src="figs/nh_outlier_CUT3scatter.png" width="750px">
 
 This histogram shows the distributions of the features:
