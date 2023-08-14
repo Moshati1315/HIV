@@ -28,36 +28,6 @@ The necessary data can be recreated with the following command:
 ```
 make data
 ```
-### EDA
-
-```
-make plots
-```
-This scatter plot gives us a look at available features
-as well as our feature of interest average nursing home score
-compared with HIV prevalence rates:
-
-<img src="figs/FeatureScatter.png" width="750px">
-
-This histogram shows the distributions of the features:
-
-<img src="figs/fullpopulation.png" width="750px">
-
-The feature of interest average nursing home score looks relatively normally distributed.
-A good sign.
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ### Model
 
